@@ -1,4 +1,8 @@
 var app = angular.module("wine", []);
+app.controller("com-header", function($scope, $http) {
+	document.getElementById("comHeader").innerHTML = GetComHeader(); 
+});
+
 app.controller("index", function($scope, $http) {
 	
 	var swiper = new Swiper('.swiper-container', {
