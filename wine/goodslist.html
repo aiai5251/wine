@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="goods">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,5 +15,30 @@
 		<link rel="stylesheet" href="goodslist.css" />
 	</head>
 	<body>
+		<div ng-controller="com-header" id="comHeader"></div>
+		<div ng-controller="goods" style="padding-top: 38px;">
+			<div class="swiper-container swiper-container-horizontal">
+				<div class="swiper-wrapper">
+					<li class="swiper-slide">
+						<img style="vertical-align:top;" src="img/banner2.png" width="100%">
+					</li>
+					<li class="swiper-slide">
+						<img style="vertical-align:top;" src="img/banner2.png" width="100%">
+					</li>
+				</div>
+				<div style="text-align:center" class="swiper-pagination"></div>
+			</div>
+			<div ng-click="asd()">asdasd</div>
+		</div>
+		<div ng-controller="com-footer" id="comFooter"></div>
+		<div style="position: fixed; bottom: 0px; width: 100%; background-color: white;">
+			<a><img src="img/tab/typeSel1.png" style="width: 23%; height: 23vm;" /></a>
+			<a href="product_medium.html"><img src="img/tab/type2.png" style="width: 23%; height: 23vm" /></a>
+			<a href="product_highgrade.html"><img src="img/tab/type3.png" style="width: 23%; height: 23vm" /></a>
+			<a href="nearby_cafehouse.html"><img src="img/tab/type4.png" style="width: 23%; height: 23vm" /></a>
+		</div>
 	</body>
+	<script type="text/javascript" src="js/swiper-3.4.1/swiper.min.js"></script>
+	<script type="text/javascript" src="com/com-headfooter.js"></script>
+	<script type="text/javascript" src="goodslist.js"></script>
 </html>
