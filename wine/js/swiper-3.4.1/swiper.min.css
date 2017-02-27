@@ -634,3 +634,17 @@ button.swiper-pagination-bullet {
     background: black none repeat scroll 0 0;
     opacity: 1;
 }
+
+body {
+	margin:0;
+	padding:0;
+}
+	
+body {
+	font-family:"微软雅黑";
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+}

@@ -1,6 +1,10 @@
 var app = angular.module("wine", []);
-app.controller("com-header", function($scope, $http) {
+app.controller("com-header", function($scope) {
 	document.getElementById("comHeader").innerHTML = GetComHeader(); 
+});
+
+app.controller("com-footer", function($scope) {
+	document.getElementById("comFooter").innerHTML = GetComFooter(); 
 });
 
 app.controller("index", function($scope, $http) {
