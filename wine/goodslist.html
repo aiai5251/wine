@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="goods">
+<html ng-app="goodslist">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,8 +14,10 @@
 		<title>商品列表</title>
 		<link rel="stylesheet" href="goodslist.css" />
 	</head>
-	<body>
+	<body style="background-color: #F0F0F1;">
+		<!-- header -->
 		<div ng-controller="com-header" id="comHeader"></div>
+		<!-- loop scrollView -->
 		<div ng-controller="goods" style="padding-top: 38px;">
 			<div class="swiper-container swiper-container-horizontal">
 				<div class="swiper-wrapper">
@@ -28,15 +30,32 @@
 				</div>
 				<div style="text-align:center" class="swiper-pagination"></div>
 			</div>
-			<div ng-click="asd()">asdasd</div>
 		</div>
+		<!-- section header -->
+		<div class="section-header">
+			<img src="img/section.png" style="width: 100%; height: 40px;"/>
+		</div>
+		<!-- wine list -->
+			<!-- cell -->
+			<div class="cell">
+				<div class="topline"></div>
+				<img src="img/goodsdefault.png" class="image" />
+				<div class="cell-right">
+					<div class="right-des">浓郁奢华 馥郁优雅</div>
+					<div class="right-name">40度长白山松茸酒</div>
+					<div class="right-amount">500ml</div>
+					<div class="right-price">¥555.0</div>
+					
+					<div class="right-button">
+						<div class="button-title">收入囊中</div>
+						<div class="button-arrow">></div>
+					</div>
+				</div>
+			</div>
+			<div class="underline"></div>
+		<!-- footer -->
+		<div style="height: 290px;"></div>
 		<div ng-controller="com-footer" id="comFooter"></div>
-		<div style="position: fixed; bottom: 0px; width: 100%; background-color: white;">
-			<a><img src="img/tab/typeSel1.png" style="width: 23%; height: 23vm;" /></a>
-			<a href="product_medium.html"><img src="img/tab/type2.png" style="width: 23%; height: 23vm" /></a>
-			<a href="product_highgrade.html"><img src="img/tab/type3.png" style="width: 23%; height: 23vm" /></a>
-			<a href="nearby_cafehouse.html"><img src="img/tab/type4.png" style="width: 23%; height: 23vm" /></a>
-		</div>
 	</body>
 	<script type="text/javascript" src="js/swiper-3.4.1/swiper.min.js"></script>
 	<script type="text/javascript" src="com/com-headfooter.js"></script>

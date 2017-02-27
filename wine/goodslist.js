@@ -1,5 +1,5 @@
 
-var app = angular.module("goods", []);
+var app = angular.module("goodslist", []);
 
 app.controller("com-header", function($scope) {
 	document.getElementById("comHeader").innerHTML = GetComHeader(); 
@@ -17,7 +17,7 @@ app.controller("goods", function($scope, $http) {
 		autoplay: 2000,
 		loop: true
 	});
-	
+	/*
 	$scope.asd = function() {
 		layer.open({
   			content: '通过style设置你想要的样式'
@@ -25,4 +25,5 @@ app.controller("goods", function($scope, $http) {
   			,time: 3
 		});
 	}
+	*/
 });
