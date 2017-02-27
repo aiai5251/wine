@@ -1,0 +1,84 @@
+body {margin:0;padding:0;background-color: #fafafa;}
+body {font-family:"微软雅黑";font-size: 14px;}
+
+.headView {
+	background-image: url(img/back.jpeg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	padding: 25px;
+}
+
+.headView img {
+	float: left;
+	width: 75px;
+	padding: 1px;
+	background-color: white;
+	border-radius: 100%;
+	border: 2px solid;
+	border-color: orange;
+}
+
+.headView span {
+	float: left;
+	color: white;
+	font-size: 16px;
+	padding-left: 10px;
+	line-height: 77px;
+}
+/*
+.orderCellWithTop {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	background-color: white;
+	border: solid;
+	border-width: 0px;
+	border-bottom-color: #e3e3e3;
+	border-bottom-width: 1px;
+	border-top-color: #e3e3e3;
+	border-top-width: 1px;
+	font-size: 14px;
+}*/
+
+.orderCellWithMiddle {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	background-color: white;
+	border: solid;
+	border-width: 0px;
+	border-bottom-color: #e3e3e3;
+	border-bottom-width: 1px;
+	font-size: 14px;
+}
+
+.orderRightCell {
+	float: right;
+	padding-right: 25px;	
+}
+
+.orderRightImage {
+	width: 20px;
+	height: 20px;
+	vertical-align: top;
+}
+
+.orderRightCell span {
+	font-size: 14px;
+}
+
+.orderRowImage {
+	width: 15px;
+	height: 15px;
+} 
+
+.sectionSpace {
+	height: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
