@@ -1,0 +1,15 @@
+.removeAnima {
+	background-color: red; 
+	width: 70px; 
+	text-align: center; 
+	float: right;
+	animation-name: drive;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+}
+
+@keyframes drive { 
+	from { transform: translateX(70px); } 
+	to { transform: translateX(0px); } 
+}

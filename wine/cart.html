@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="wine" ng-controller="cart">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="shortcut icon" href="">
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<link rel="stylesheet" href="css/default.css" />
+		<title>购物车</title>
+		<link rel="stylesheet" href="cart.css" />
+	</head>
+
+	<body>
+		<div class="emptyCart" ng-show="cartArray.length == 0">
+			<img src="img/cart.png" />
+			<div>你的购物车还没有商品哦</div>
+			<div class="emptyCartButton">
+				<span>去挑选</span></div>
+		</div>
+
+		<div ng-show="cartArray.length > 0">
+			<div ng-click="edit()" style="padding: 10px; text-align: right;">编辑</div>
+
+			<!-- 商品 -->
+			<div ng-repeat="row in cartArray">
+				<div class="cartCell">
+					<table width="100%">
+						<tr>
+							<td width="30px"><img src="img/choose.png" class="cartChooseButton" /></td>
+							<td rowspan="3" width="70px" style="background-image: url({{'http://img05.tooopen.com/images/20140328/sy_57806456622.jpg'}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
+							<td rowspan="2">
+								<div class="cartMiddleCell">
+									<div>法国梦幻巴蒂AOP原瓶进口幻彩干白葡萄酒1支装</div>
+									<div class="clear"></div>
+								</div>
+							</td>
+							<td>
+								<div class="cartRightCell">
+									<div class="cartPrice">¥258.0</div>
+									<div class="cartNum">x2</div>
+								</div>
+								<!--<div>
+									<div id="removeId" style="display: none;">删除</div>
+									<div style="clear: both;"></div>
+								</div>-->
+								
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<div class="cartVintage">
+									年份：2013、容量：750ml
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="sectionSpace"></div>
+			</div>
+		</div>
+
+		<!--<div style="height: 44px; background-color: lightgray;">
+				<div id="removeId" style="display: none;">删除</div>
+				<div style="clear: both;"></div>
+			</div>-->
+
+	</body>
+	<script type="text/javascript" src="cart.js"></script>
+
+</html>

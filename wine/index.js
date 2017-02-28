@@ -17,10 +17,12 @@ app.controller("index", function($scope, $http) {
 	});
 	
 	$scope.asd = function() {
-		layer.open({
-  			content: '通过style设置你想要的样式'
-  			,style: 'background-color:#09C1FF; color:#fff; border:none;' //自定风格
-  			,time: 3
-		});
+		document.getElementById('removeId').className = "removeAnima";
+		document.getElementById("removeId").style.display = "block";
+//		layer.open({
+//			content: '通过style设置你想要的样式'
+//			,style: 'background-color:#09C1FF; color:#fff; border:none;' //自定风格
+//			,time: 3
+//		});
 	}
 });
