@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="wine">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="shortcut icon" href="">
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/mobile/layer.js"></script>
+		<title>个人中心</title>
+		<link rel="stylesheet" href="my.css" />
+	</head>
+
+	<body>
+		<div ng-controller="my">
+			<div class="headView">
+				<img src="img/logo.png" />
+				<span>Answer</span>
+				<div class="clear"></div>
+			</div>
+
+			<div class="orderCellWithMiddle">
+				<span>我的订单</span>
+				<span class="orderRightCell">
+					查看所有订单
+					<img class="orderRightImage" src="img/arrow.png"/>
+				</span>
+				<div class="clear"></div>
+			</div>
+			
+			<!--<div class="orderCellWithMiddle">
+				asd
+			</div>-->
+			
+			<div class="sectionSpace"></div>
+			
+			<div class="orderCellWithMiddle" ng-repeat="row in dataArray">
+				<span ng-bind="row.title"></span>
+				<span class="orderRightCell">
+					<span ng-show="row.hasRight">0张</span>
+					<img class="orderRightImage" src="img/arrow.png"/>
+				</span>
+			</div>
+			
+		</div>
+		<div ng-controller="com-footer" id="comFooter"></div>
+	</body>
+	<script type="text/javascript" src="com/com-headfooter.js"></script>
+	<script type="text/javascript" src="my.js"></script>
+
+</html>
