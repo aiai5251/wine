@@ -42,10 +42,10 @@ body {font-family:"微软雅黑";font-size: 14px;}
 }*/
 
 .orderCellWithMiddle {
-	width: 100%;
+	/*width: 100%;*/
 	padding-top: 10px;
 	padding-bottom: 10px;
-	padding-left: 20px;
+	padding-left: 10px;
 	background-color: white;
 	border: solid;
 	border-width: 0px;
@@ -56,7 +56,6 @@ body {font-family:"微软雅黑";font-size: 14px;}
 
 .orderRightCell {
 	float: right;
-	padding-right: 25px;	
 }
 
 .orderRightImage {
@@ -76,6 +75,44 @@ body {font-family:"微软雅黑";font-size: 14px;}
 
 .sectionSpace {
 	height: 10px;
+}
+
+/* 待付款，待发货，待收获，已完成*/
+ul {
+	list-style: none;
+}
+
+ul.imagelist {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+ul.imagelist div {
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+
+ul.imagelist li {
+	float: left;
+	width: 42px;
+	padding-left: 20%;
+}
+
+ul.imagelist li a {
+	
+}
+
+ul.imagelist li img {
+	margin-left: 1px;
+}
+
+ul.imagelist li span {
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
 }
 
 .clear {

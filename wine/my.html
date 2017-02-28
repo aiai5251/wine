@@ -31,21 +31,47 @@
 				</span>
 				<div class="clear"></div>
 			</div>
-			
-			<!--<div class="orderCellWithMiddle">
-				asd
-			</div>-->
-			
+
+			<div class="orderCellWithMiddle" style="padding: 0px;">
+				<ul class="imagelist">
+					<div>
+						<li>
+							<img src="img/waitpay.png" />
+							<span>待付款</span>
+						</li>
+					</div>
+					<div>
+						<li>
+							<img src="img/waitpay.png" />
+							<span>待付款</span>
+						</li>
+					</div>
+					<div>
+						<li>
+							<img src="img/waitpay.png" />
+							<span>待付款</span>
+						</li>
+					</div>
+					<div>
+						<li>
+							<img src="img/waitpay.png" />
+							<span>待付款</span>
+						</li>
+					</div>
+				</ul>
+				<div class="clear"></div>
+			</div>
+
 			<div class="sectionSpace"></div>
-			
+
 			<div class="orderCellWithMiddle" ng-repeat="row in dataArray">
 				<span ng-bind="row.title"></span>
 				<span class="orderRightCell">
 					<span ng-show="row.hasRight">0张</span>
-					<img class="orderRightImage" src="img/arrow.png"/>
+				<img class="orderRightImage" src="img/arrow.png" />
 				</span>
 			</div>
-			
+
 		</div>
 		<div ng-controller="com-footer" id="comFooter"></div>
 	</body>
