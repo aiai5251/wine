@@ -17,13 +17,8 @@ app.controller("goods", function($scope, $http) {
 		autoplay: 2000,
 		loop: true
 	});
-	/*
-	$scope.asd = function() {
-		layer.open({
-  			content: '通过style设置你想要的样式'
-  			,style: 'background-color:#09C1FF; color:#fff; border:none;' //自定风格
-  			,time: 3
-		});
+	
+	$scope.selectCell = function() {
+			
 	}
-	*/
 });
