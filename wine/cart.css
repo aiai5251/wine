@@ -18,12 +18,9 @@
 .cartCell {
 	background-color: white;
 	padding: 10px;
-	padding-right: 0px;
 }
 
 .cartChooseButton {
-	z-index: 2;
-	margin-top: 30px;
 	width: 24px;
 	height: 24px;
 }
@@ -35,7 +32,7 @@
 
 .cartRightCell {
 	padding-left: 10px;
-	text-align: right;
+	/*text-align: right;*/
 }
 
 .cartPrice {
@@ -44,6 +41,7 @@
 }
 
 .cartNum {
+	float: right;
 	color: black;
 	font-size: 12px;
 }
@@ -56,20 +54,4 @@
 
 .sectionSpace {
 	height: 10px;
-}
-
-.removeAnima {
-	background-color: red; 
-	width: 70px; 
-	text-align: center; 
-	/*float: right;*/
-	animation-name: drive;
-	animation-duration: 0.5s;
-	animation-timing-function: ease-in;
-	animation-iteration-count: 1;
-}
-
-@keyframes drive { 
-	from { transform: translateX(70px); } 
-	to { transform: translateX(0px); } 
 }
