@@ -16,6 +16,17 @@
 	</head>
 
 	<body>
+		<div>
+			<div class="headerCell">
+				<div class="goBuyButton">
+					<span> < 继续购买 </span>
+				</div>
+				<div class="ad">放宣传语放宣传语放宣传语放宣传语放宣传语</div>
+				<div class="clear"></div>
+			</div>
+			<div class="sectionSpace"></div>
+		</div>
+
 		<div class="emptyCart" ng-show="cartArray.length == 0">
 			<img src="img/cart.png" />
 			<div>你的购物车还没有商品哦</div>
@@ -23,9 +34,8 @@
 				<span>去挑选</span></div>
 		</div>
 
-		<div ng-show="cartArray.length > 0">
-			<div ng-click="edit()" style="padding: 10px; text-align: right;">编辑</div>
-
+		<div class="allCart" ng-show="cartArray.length > 0">
+			<!--<div ng-click="edit()" style="padding: 10px; text-align: right;">编辑</div>-->
 			<!-- 商品 -->
 			<div ng-repeat="row in cartArray">
 				<div class="cartCell">
@@ -35,7 +45,11 @@
 							<td rowspan="4" width="80px" style="background-image: url({{'http://img05.tooopen.com/images/20140328/sy_57806456622.jpg'}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
 							<td>
 								<div class="cartMiddleCell">
-									<div>法国梦幻巴蒂AOP原瓶进口幻彩干白葡萄酒1支装</div>
+									<img src="img/del.png" />
+									<div>
+										<span>法国梦幻巴蒂AOP原瓶进口幻彩干白葡萄酒1支装	</span>
+									</div>
+									<div class="clear"></div>
 								</div>
 							</td>
 						</tr>
@@ -50,7 +64,10 @@
 							<td>
 								<div class="cartRightCell">
 									<span class="cartPrice">¥258.0</span>
-									<span class="cartNum">x2</div>
+									<div class="cartNum">
+										<img src="img/minus.png" /> <span>2</span> <img src="img/plus.png" />
+									</div>
+									<div class="clear"></div>
 								</div>
 							</td>
 						</tr>
@@ -58,8 +75,37 @@
 				</div>
 				<div class="sectionSpace"></div>
 			</div>
+
+			<div class="footerCell">
+				<div>
+					<table width="100%">
+						<tr>
+							<td rowspan="2" width="26px" class="footerChooseTd">
+								<img src="img/choose.png" class="cartChooseButton" />
+							</td>
+							<td rowspan="2">全选</td>
+							<td class="totalTd">合计：<span>¥450</span>&nbsp;</td>
+							<td rowspan="2" class="accountTd">结算(1)</td>
+						</tr>
+						<tr>
+							<td class="freight"><span>不含运费</span>&nbsp;</td>
+						</tr>
+					</table>
+				</div>
+				<!--<div style="height: 1px; background-color: #d5d5d5;"></div>
+				<div style="float: left; padding: 15px 10px 0px 10px;">
+					<img src="img/choose.png" style="width: 20px; height: 20px; z-index: 1; margin-top: 1px; position: absolute;" ng-click="addAllChoose()" />
+					<img src="img/chooseSel.png" style="width: 20px; height: 20px; z-index: 2; margin-top: 1px; position: absolute;" ng-show="isAllChoose" ng-click="removeAllChoose()" />
+					<span style="padding: 12px 0px 0px 30px; font-size: 14px; color: #9e0039">全选</span>
+				</div>
+				<div style="float: right; text-align: right; padding: 16px 10px 0px 0px;">
+					<span style="color: #606060; font-size: 14px; vertical-align: top; padding-right: 5px;" ng-cloak>合计:{{allMoney}}元</span>
+					<a href="#" ng-click="totalButton()"><img src="img/total.png" width="82px" height="36px" style="z-index: 2; margin-top: -7px;" /></a>
+				</div>
+				<div style="clear: both;"></div>-->
+			</div>
 		</div>
-		
+
 	</body>
 	<script type="text/javascript" src="cart.js"></script>
 

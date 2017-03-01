@@ -1,3 +1,34 @@
+/*头部cell，宣传语*/
+.headerCell {
+	width: 100%; 
+	font-size: 12px; 
+	background-color: white; 
+	border: solid;
+	border-width: 0px;
+	border-top-color: #e3e3e3;
+	border-top-width: 0.5px;
+	border-bottom-color: #e3e3e3;
+	border-bottom-width: 0.5px;
+}
+
+.goBuyButton {
+	float: left;
+	padding: 10px 10px;
+}
+
+.goBuyButton span {
+	background-color: red;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 10px;
+}
+
+.ad {
+	color: deepskyblue;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+/* 空购物车下的css*/
 .emptyCart {
 	padding-top: 40%;
 	text-align: center;
@@ -15,6 +46,11 @@
 	border-radius: 5px;
 }
 
+.allCart {
+	padding-bottom: 60px;
+}
+
+/*商品cell*/
 .cartCell {
 	background-color: white;
 	padding: 10px;
@@ -30,9 +66,17 @@
 	color: #404040;
 }
 
+.cartMiddleCell img {
+	width: 18px;
+	float: right;
+}
+
+.cartMiddleCell div {
+	padding-right: 20px;
+}
+
 .cartRightCell {
 	padding-left: 10px;
-	/*text-align: right;*/
 }
 
 .cartPrice {
@@ -44,6 +88,13 @@
 	float: right;
 	color: black;
 	font-size: 12px;
+	line-height: 22px;
+}
+
+.cartNum img {
+	width: 18px;
+	padding-top: 2px;
+	vertical-align: top;
 }
 
 .cartVintage {
@@ -52,6 +103,51 @@
 	color: #909090;
 }
 
+/*中间间隔*/
 .sectionSpace {
 	height: 10px;
+}
+
+/*底部结算cell*/
+.footerCell {
+	position: fixed; 
+	bottom: 0px; 
+	width: 100%; 
+	font-size: 14px; 
+	background-color: white; 
+	z-index: 2;
+	border: solid;
+	border-width: 0px;
+	border-top-color: #e3e3e3;
+	border-top-width: 0.5px;
+	
+}
+
+.footerChooseTd {
+	padding: 5px 5px 0px 10px;
+}
+
+.accountTd {
+	background-color: red;
+	text-align: center;
+	color: white;
+	width: 70px;
+}
+
+.totalTd {
+	text-align: right;
+	font-size: 16px;
+}
+
+.totalTd span {
+	color: red;
+}
+
+.freight {
+	text-align: right;
+}
+
+.freight span {
+	color: #909090;
+	font-size: 12px;
 }
