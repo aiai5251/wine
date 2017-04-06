@@ -7,7 +7,7 @@ app.controller("my", function($scope, $http) {
 	$scope.orderStatusArray = [
 		{"title": "待付款", "icon": "waitpay.png"},
 		{"title": "待发货", "icon": "waitsend.png"},
-		{"title": "待收货", "icon": "waitpay.png"},
+		{"title": "待收货", "icon": "waitharvest.png"},
 		{"title": "已完成", "icon": "waitsend.png"}
 	];
 	
