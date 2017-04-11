@@ -1,0 +1,38 @@
+body {
+	background-color: white;
+}
+
+.content {
+	padding: 0px 20px 20px 20px;
+}
+
+.tag_title {
+	background-color: red;
+	text-align: center;
+	color: white;
+	vertical-align: top;
+	padding-top: 5px;
+}
+
+.tag_point_cell {
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	vertical-align: top;
+}
+
+.tag_content_cell {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.point {
+	background-color: orange;
+	width: 5px;
+	height: 5px;
+}
+
+.tag_content {
+	font-size: 12px;
+	color: black;
+}

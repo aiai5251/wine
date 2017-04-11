@@ -1,0 +1,206 @@
+/*body{
+	padding: 0px;
+	margin: 0px;
+}*/
+.content {
+	padding: 0px;
+	margin: 0px;
+	padding-bottom: 44px;
+}
+
+.titleSection {
+	background-color: white;
+	padding: 10px;
+}
+
+.ziying {
+	background-color: red;
+	padding: 1px 3px;
+	color: white;
+	border-radius: 5px;
+}
+
+.title {
+	padding-left: 5px;
+	font-size: 16px;
+}
+
+.ad {
+	padding-top: 5px;
+	padding-bottom: 3px;
+	color: red;
+	font-size: 12px;
+}
+
+.line {
+	background-color: gainsboro;
+	height: 1px;
+}
+
+.priceNumCell {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.price {
+	padding-right: 8px;
+	color: red;
+	font-size: 16px;
+}
+
+.orginPrice {
+	color: gray;
+	font-size: 12px;
+}
+
+.numCell {
+	padding-top: 8px;
+}
+.numCell div {
+	float: left;
+	line-height: 35px;
+	vertical-align: top;
+}
+
+.numDesc {
+	line-height: 35px;
+	vertical-align: top;
+}
+
+.num {
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 35px;
+	vertical-align: top;
+	/*border-width: 1px;
+	border-color: grey;
+	border-style: solid;*/
+}
+
+.numCell img {
+	width: 35px;
+	height: 35px;
+}
+
+/*spaceSection*/
+.spaceSection {
+	background-color: gray;
+	height: 8px;
+}
+
+/*activity Section*/
+.activitySection {
+	background-color: white;
+	padding: 5px 10px 5px 10px;
+}
+
+.activityCell {
+	color: gray;
+	font-size: 12px;
+	padding: 8px 0px;
+}
+
+.activityCell .activity-oneCell {
+	color: white;
+	background-color: red;
+	padding: 1px;
+}
+
+.activityCell .activity-twoCell {
+	color: black;
+}
+
+.activityCell .activity-twoCell .integral {
+	color: red;
+}
+
+.activityCell .activity-thridCell {
+	color: red;
+	border-style: solid;
+	border-color: red;
+	border-width: 1px;
+	padding: 2px 4px;
+}
+
+.activityCell .right-button {
+	float: right;
+}
+
+/*recommend Section*/
+.recommendSection {
+	background-color: white;
+	padding: 10px;
+}
+
+.leftRecommend {
+	
+}
+
+.rightGood {
+	float: right;
+}
+
+.rightNum {
+	float: right;
+	color: red;
+	padding-left: 5px;
+}
+
+.commendCell {
+	padding-top: 10px;
+}
+
+.commendCell div {
+	float: left;
+	padding: 8px 8px 8px 0px;
+}
+
+.commendCell span {
+	padding: 3px 5px;
+	background-color: palevioletred;
+	border-radius: 5px;
+}
+
+.commendCell_People {
+	padding-top: 8px;
+}
+
+.commendCell_People img {
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+}
+
+.commendCell_People span {
+	line-height: 25px;
+	vertical-align: top;
+	padding-left: 5px;
+	color: gray;
+}
+
+.allCommend {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.allCommend_button {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 2px;
+	border-color: gray;
+	color: gray;
+	padding: 2px 5px;
+}
+
+.detailImage img {
+	width: 100%;
+}
+
+.footerSection {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: white;
+	height: 44px;
+}

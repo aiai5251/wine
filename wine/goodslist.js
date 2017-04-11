@@ -1,5 +1,5 @@
 
-var app = angular.module("goodslist", []);
+var app = angular.module("wine", []);
 
 app.controller("com-header", function($scope) {
 	document.getElementById("comHeader").innerHTML = GetComHeader(); 

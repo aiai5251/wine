@@ -1,0 +1,17 @@
+.orderNumCell {
+	background-color: white;
+	padding: 5px;
+}
+
+.orderNum {
+	float: left;
+}
+
+.orderType {
+	float: right;
+	color: red;
+}
+
+.orderCell {
+	padding: 5px;
+}
