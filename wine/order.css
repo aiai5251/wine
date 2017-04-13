@@ -1,0 +1,23 @@
+
+
+
+/*商品金额，运费*/
+.orderPriceCell {
+	background-color: white;
+	padding: 10px 5px;
+	font-size: 14px;
+}
+
+.orderPriceCell .price {
+	color: red;
+	float: right;
+}
+
+.orderPriceCell .second {
+	padding-top: 5px;
+}
+
+.orderPriceCell .second .weight {
+	color: darkgray;
+	font-size: 12px;
+}

@@ -1,17 +1,73 @@
 .orderNumCell {
 	background-color: white;
-	padding: 5px;
+	padding: 10px 5px;
 }
 
-.orderNum {
-	float: left;
-}
-
-.orderType {
+.orderNumCell .orderType {
 	float: right;
 	color: red;
 }
 
 .orderCell {
 	padding: 5px;
+}
+
+.orderCell .title {
+	vertical-align: top;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.priceCell {
+	background-color: white;
+}
+
+.priceCell .price {
+	float: right;
+	padding: 5px;
+	color: grey;
+	font-size: 12px;
+}
+
+.priceCell .price span {
+	font-size: 14px;
+	color: black;
+}
+
+.line {
+	background-color: #E3E3E3;
+	height: 1px;
+}
+
+.buttonsCell {
+	background-color: white;
+	padding: 5px;
+}
+
+.buttonsCell .rightCell {
+	float: right;
+	padding: 10px 0px;
+}
+
+.buttonsCell .blackButton {
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	border-radius: 5px;
+	padding: 3px 15px;
+	color: black;
+}
+
+.buttonsCell .redButton {
+	border-style: solid;
+	border-width: 1px;
+	border-color: red;
+	border-radius: 5px;
+	padding: 3px 15px;
+	color: red;
+}
+
+.buttonsCell .space {
+	padding-left: 10px;
+	float: left;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="wine" ng-controller="order">
+
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +14,53 @@
 		<link rel="stylesheet" href="css/default.css" />
 		<title>确认订单</title>
 		<link rel="stylesheet" href="order.css" />
+		<link rel="stylesheet" href="cart.css" />
 	</head>
+
 	<body>
-		
+		<div>
+			
+		</div>
+		<div ng-repeat="row in cartArray">
+			<div class="cartCell">
+				<table width="100%">
+					<tr>
+						<td rowspan="4" width="80px" style="background-image: url({{'http://img05.tooopen.com/images/20140328/sy_57806456622.jpg'}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
+						<td>
+							<div class="cartMiddleCell">
+								<div>
+									<span>法国梦幻巴蒂AOP原瓶进口幻彩干白葡萄酒1支装	</span>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="cartVintage">
+								年份：2013、容量：750ml
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="cartRightCell">
+								<span class="cartPrice">¥258.0</span>
+								<div class="cartNum">
+									<span>X 2</span>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="sectionSpace"></div>
+		</div>
+		<div class="orderPriceCell">
+			<div>商品金额<span class="price">¥7799.00</span></div>
+			<div class="second">运费<span class="weight">（总重：7.330kg）</span><span class="price">+¥0.00</span></div>
+		</div>
 	</body>
 	<script type="text/javascript" src="order.js"></script>
 
