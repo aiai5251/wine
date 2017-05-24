@@ -18,6 +18,20 @@ app.controller("goods", function($scope, $http) {
 		loop: true
 	});
 	
+	$http.get(getHeadUrl() + "homeController/HomePage.do?userid=1&page=1&pagesize=10").success(function(response) {
+		// banner
+		$scope.bannerList = response.listbanners;
+		$("#swiperwrapper").html("");
+		for(var i = 0; i < $scope.bannerList.length; i++) {
+			swiper.appendSlide(_.template($('#templateSwiper').html())($scope.bannerList[i]));
+		}
+		console.log(response.listbanners);
+		
+		// product
+		$scope.productList = response.listproduct;
+		console.log($scope.productList);
+	});
+	
 	$scope.selectCell = function() {
 			
 	}

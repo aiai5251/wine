@@ -42,12 +42,12 @@
 					<table width="100%">
 						<tr>
 							<td rowspan="4" width="30px"><img src="img/choose.png" class="cartChooseButton" /></td>
-							<td rowspan="4" width="80px" style="background-image: url({{'http://img05.tooopen.com/images/20140328/sy_57806456622.jpg'}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
+							<td rowspan="4" width="80px" style="background-image: url({{row.imgurl}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
 							<td>
 								<div class="cartMiddleCell">
 									<img src="img/del.png" />
 									<div>
-										<span>法国梦幻巴蒂AOP原瓶进口幻彩干白葡萄酒1支装	</span>
+										<span ng-bind="row.title"></span>
 									</div>
 									<div class="clear"></div>
 								</div>
@@ -56,14 +56,14 @@
 						<tr>
 							<td>
 								<div class="cartVintage">
-									年份：2013、容量：750ml
+									商品规格：<span ng-bind="row.volume"></span>／瓶
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<div class="cartRightCell">
-									<span class="cartPrice">¥258.0</span>
+									<span class="cartPrice">¥<span ng-bind="row.price"></span></span>
 									<div class="cartNum">
 										<img src="img/minus.png" /> <span>2</span> <img src="img/plus.png" />
 									</div>
@@ -107,6 +107,7 @@
 		</div>
 
 	</body>
+	<script type="text/javascript" src="com/global.js" ></script>
 	<script type="text/javascript" src="cart.js"></script>
 
 </html>
