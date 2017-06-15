@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="wine">
+<html ng-app="wine" ng-controller="my">
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -10,14 +10,40 @@
 		<meta name="format-detection" content="telephone=no">
 		<link rel="shortcut icon" href="">
 		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/mobile/layer.js"></script>
 		<link rel="stylesheet" href="css/default.css" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
 		<title>个人中心</title>
 		<link rel="stylesheet" href="my.css" />
 	</head>
 
 	<body>
-		<div ng-controller="my">
+
+		<!--头部-->
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">东方酒业官网</h1>
+		</header>
+		<!--底部tabbar-->
+		<nav class="mui-bar mui-bar-tab">
+			<div class="mui-tab-item" ng-click="push(1)">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</div>
+			<div class="mui-tab-item" ng-click="push(2)">
+				<span class="mui-icon iconfont icon-gouwuche"><span class="mui-badge" ng-show="1 == 0"></span></span>
+				<span class="mui-tab-label">购物车</span>
+			</div>
+			<div class="mui-tab-item mui-active">
+				<span class="mui-icon iconfont icon-center"></span>
+				<span class="mui-tab-label">个人中心</span>
+			</div>
+			<div class="mui-tab-item" ng-click="push(4)">
+				<span class="mui-icon iconfont icon-wodeerweima"></span>
+				<span class="mui-tab-label">我的二维码</span>
+			</div>
+		</nav>
+		<!--内容-->
+		<div class="mui-content">
 			<div class="headView">
 				<img src="img/logo.png" />
 				<span>Answer</span>
@@ -72,11 +98,9 @@
 				<img class="orderRightImage" src="img/arrow.png" />
 				</span>
 			</div>
-
 		</div>
-		<div ng-controller="com-footer" id="comFooter"></div>
 	</body>
-	<script type="text/javascript" src="com/com-headfooter.js"></script>
+	<script type="text/javascript" src="js/mui.min.js"></script>
 	<script type="text/javascript" src="my.js"></script>
 
 </html>

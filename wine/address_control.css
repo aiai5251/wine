@@ -1,0 +1,41 @@
+.mui-tab-item {
+	background-color: red;
+}
+
+.mui-tab-label {
+	color: white;
+	font-size: 14px;
+}
+
+.topInterval {
+	padding-top: 10px;
+	font-size: 14px;
+}
+
+.topInterval span{
+	float: right;
+}
+
+.topInterval img {
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	margin-top: -2px;
+}
+
+.topInterval button {
+	margin-left: 5px;
+	margin-top: -2px;
+	float: right;
+	font-size: 12px;
+	padding-top: 4px;
+	height: 25px;
+}
+
+.lineStriping {
+	height: 1px;
+}
+
+.address {
+	font-size: 12px;
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="wine">
+<html ng-app="wine" ng-controller="goods">
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -10,49 +10,74 @@
 		<meta name="format-detection" content="telephone=no">
 		<link rel="shortcut icon" href="">
 		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/mobile/layer.js"></script>
 		<link rel="stylesheet" href="js/swiper-3.4.1/swiper.min.css" />
-		<title>商品列表</title>
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<title>东方酒业官网</title>
 		<link rel="stylesheet" href="goodslist.css" />
 	</head>
 
-	<body style="background-color: #F0F0F1;">
-		<!-- header -->
-		<div ng-controller="com-header" id="comHeader"></div>
-		<!-- loop scrollView -->
-		<div ng-controller="goods" style="padding-top: 38px;">
+	<body>
+		<!--头部-->
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">东方酒业官网</h1>
+		</header>
+		<!--底部tabbar-->
+		<nav class="mui-bar mui-bar-tab">
+			<div class="mui-tab-item mui-active">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</div>
+			<div class="mui-tab-item" ng-click="push(2)">
+				<span class="mui-icon iconfont icon-gouwuche"><span class="mui-badge" ng-show="1 == 0"></span></span>
+				<span class="mui-tab-label">购物车</span>
+			</div>
+			<div class="mui-tab-item" ng-click="push(3)">
+				<span class="mui-icon iconfont icon-center"></span>
+				<span class="mui-tab-label">个人中心</span>
+			</div>
+			<div class="mui-tab-item" ng-click="push(4)">
+				<span class="mui-icon iconfont icon-wodeerweima"></span>
+				<span class="mui-tab-label">我的二维码</span>
+			</div>
+		</nav>
+		<!--内容-->
+		<div class="mui-content">
 			<div class="swiper-container swiper-container-horizontal">
 				<div id="swiperwrapper" class="swiper-wrapper">
 				</div>
 				<div style="text-align:center" class="swiper-pagination"></div>
 			</div>
-			<!-- section header -->
-			<div class="section-header">
-				<img src="img/section.png" style="width: 100%; height: 40px;" />
-			</div>
-			<!-- wine list -->
-			<!-- cell -->
-			<div ng-repeat="row in productList" class="cell">
+			<div class="borderDiv" ng-show="productList.length > 0" ng-repeat="row in productList">
 				<a href="detail.html?id={{row.id}}">
-				<div class="topline"></div>
-				<img ng-src="{{row.imgurl}}" src="img/goodsdefault.png" class="image" />
-				<div class="cell-right">
-					<div class="right-des" ng-bind="row.title"></div>
-					<div class="right-name" ng-bind="row.submessage"></div>
-					<div class="right-amount" ng-bind="row.volume"></div>
-					<div class="right-price">¥<span ng-bind="row.price"></span></div>
-					<div class="right-button">
-						<div class="button-title">收入囊中</div>
-						<div class="button-arrow">></div>
+					<div style="padding: 4%; background-color: white;">
+						<table width="100%">
+							<tr>
+								<td rowspan="6" width="40%" style="background-image: url({{row.imgurl}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
+							</tr>
+							<tr>
+								<td class="title" ng-bind="row.title"></td>
+							</tr>
+							<tr>
+								<td class="submessage" ng-bind="row.submessage"></td>
+							</tr>
+							<tr>
+								<td class="submessage" ng-bind="row.volume"></td>
+							</tr>
+							<tr>
+								<td class="price"><span>¥</span><span ng-bind="row.price"></span></td>
+							</tr>
+							<tr>
+								<td class="rightButton">
+									<a href="">
+										<button type="button" class="mui-btn mui-icon mui-icon-arrowright mui-right" ng-click="selectCell(row.id)">收入囊中</button>
+									</a>
+								</td>
+							</tr>
+						</table>
 					</div>
-				</div>
 				</a>
 			</div>
-			<div class="underline"></div>
-			<!-- footer -->
-			<div style="height: 90px;"></div>
-		</div>
-		<div ng-controller="com-footer" id="comFooter">
 		</div>
 	</body>
 	<script type="text/template" id="templateSwiper">
@@ -61,7 +86,7 @@
 		</li>
 	</script>
 	<script type="text/javascript" src="com/global.js"></script>
-	<script type="text/javascript" src="com/com-headfooter.js"></script>
+	<script type="text/javascript" src="js/mui.min.js"></script>
 	<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper-3.4.1/swiper.min.js"></script>
 	<script type="text/javascript" src="js/underscore-min.js"></script>

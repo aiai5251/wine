@@ -1,8 +1,4 @@
 var app = angular.module("wine", []);
-app.controller("com-footer", function($scope) {
-	document.getElementById("comFooter").innerHTML = GetComFooter(); 
-});
-
 app.controller("my", function($scope, $http) {
 	$scope.orderStatusArray = [
 		{"title": "待付款", "icon": "waitpay.png"},
@@ -17,5 +13,14 @@ app.controller("my", function($scope, $http) {
 		{"title": "客服", "icon": "tel.png", "hasRight": false}
 	];
 	
+	$scope.push = function(pushId) {
+		if (pushId == 1) {
+			location.href = "goodslist.html";
+		} else if (pushId == 2) {
+			location.href = "cart.html";
+		} else {
+			location.href = "my_qrcode.html";
+		}
+	}
 	
 });

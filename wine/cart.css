@@ -1,3 +1,7 @@
+a {
+	color: white;
+	text-decoration:none;
+}
 /*头部cell，宣传语*/
 .headerCell {
 	width: 100%; 

@@ -1,0 +1,30 @@
+.mui-table-cell p {
+	color: black;
+}
+
+.mui-table-cell span {
+	float: right;
+}
+
+.address {
+	font-size: 12px;
+	color: black;
+}
+
+.address label {
+	color: brown;
+}
+
+.line {
+	float: right;
+	color: white;
+}
+
+.mui-tab-item {
+	background-color: red;
+}
+
+.mui-tab-label {
+	color: white;
+	font-size: 14px;
+}

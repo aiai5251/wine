@@ -9,14 +9,37 @@
 		<meta name="format-detection" content="telephone=no">
 		<link rel="shortcut icon" href="">
 		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/mobile/layer.js"></script>
 		<link rel="stylesheet" href="css/default.css" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/mui.picker.css" />
+		<link rel="stylesheet" href="css/mui.poppicker.css" />
 		<title>编辑收获地址</title>
 		<link rel="stylesheet" href="address_edit.css" />
 	</head>
 	<body>
-		
+		<form class="mui-input-group">
+			<div class="mui-input-row">
+				<input type="text" class="mui-input-clear" id="name" placeholder="收件人">
+			</div>
+			<div class="mui-input-row">
+				<input type="text" class="mui-input-clear" id="tel" placeholder="收件人电话">
+			</div>
+			<div class="mui-input-row" id='showCityPicker'>
+				<input type="text" readonly="readonly" id="cityResult" value="省、市">
+			</div>
+			<div class="mui-input-row">
+				<input type="text" class="mui-input-clear" id="address" placeholder="收件人详细地址">
+			</div>
+		</form>
+		<div class="addAddress">
+			<button type="button" class="mui-btn mui-btn-danger mui-btn-block" ng-click="editAddress()">保存</button>
+		</div>
 	</body>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/mui/city.data.js" ></script>
+	<script type="text/javascript" src="js/mui/mui.picker.js" ></script>
+	<script type="text/javascript" src="js/mui/mui.poppicker.js" ></script>
+	<script type="text/javascript" src="com/global.js" ></script>
 	<script type="text/javascript" src="address_edit.js"></script>
 
 </html>

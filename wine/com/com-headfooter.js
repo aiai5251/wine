@@ -3,5 +3,5 @@ function GetComHeader() {
 }
 
 function GetComFooter() {
-	return "<div style=\"position: fixed; left:0px; right:0px; bottom: 0px; background-color: white;\"><a><img src=\"img/tab/typeSel1.png\" style=\"width: 23%; height: 23vm;\" /></a><a href=\"cart.html\"><img src=\"img/tab/type2.png\" style=\"width: 23%; height: 23vm\" /></a><a href=\"my.html\"><img src=\"img/tab/type3.png\" style=\"width: 23%; height: 23vm\" /></a><a href=\"my_qrcode.html\"><img src=\"img/tab/type4.png\" style=\"width: 23%; height: 23vm\" /></a></div>"
+	return "<div style=\"position: fixed; left:0px; right:0px; bottom: 0px; background-color: white;\"><a><img src=\"img/tab/typeSel1.jpg\" style=\"width: 24%; height: 24vm;\" /></a><a href=\"cart.html\"><img src=\"img/tab/type2.jpg\" style=\"width: 24%; height: 24vm\" /></a><a href=\"my.html\"><img src=\"img/tab/type3.jpg\" style=\"width: 24%; height: 24vm\" /></a><a href=\"my_qrcode.html\"><img src=\"img/tab/type4.jpg\" style=\"width: 24%; height: 24vm\" /></a></div>"
 }
