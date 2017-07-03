@@ -57,7 +57,7 @@ a {
 /*商品cell*/
 .cartCell {
 	background-color: white;
-	padding: 10px;
+	padding: 6px;
 }
 
 .cartChooseButton {
@@ -68,6 +68,7 @@ a {
 .cartMiddleCell {
 	padding-left: 10px;
 	color: #404040;
+	font-size: 14px;
 }
 
 .cartMiddleCell img {
@@ -124,7 +125,6 @@ a {
 	border-width: 0px;
 	border-top-color: #e3e3e3;
 	border-top-width: 0.5px;
-	
 }
 
 .footerChooseTd {
@@ -135,12 +135,14 @@ a {
 	background-color: red;
 	text-align: center;
 	color: white;
-	width: 70px;
+	width: 110px;
 }
 
 .totalTd {
 	text-align: right;
 	font-size: 16px;
+	padding-top: 5px;
+	padding-right: 2px;
 }
 
 .totalTd span {
@@ -149,6 +151,7 @@ a {
 
 .freight {
 	text-align: right;
+	padding-right: 2px;
 }
 
 .freight span {

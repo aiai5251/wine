@@ -11,10 +11,10 @@
 		<link rel="shortcut icon" href="">
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<link rel="stylesheet" href="css/default.css" />
+		<link rel="stylesheet" href="css/mui.min.css" />
 		<title>购物车</title>
 		<link rel="stylesheet" href="cart.css" />
 	</head>
-
 	<body>
 		<div>
 			<div class="headerCell">
@@ -35,7 +35,6 @@
 		</div>
 
 		<div class="allCart" ng-show="cartArray.length > 0">
-			<!--<div ng-click="edit()" style="padding: 10px; text-align: right;">编辑</div>-->
 			<!-- 商品 -->
 			<div ng-repeat="row in cartArray">
 				<div class="cartCell">
@@ -91,28 +90,17 @@
 							</td>
 							<td rowspan="2">全选</td>
 							<td class="totalTd">合计：<span>¥</span><span ng-bind="allMoney"></span>&nbsp;</td>
-							<td rowspan="2" class="accountTd">结算(1)</td>
+							<td rowspan="2" class="accountTd" ng-click="totalButton()">结算</td>
 						</tr>
 						<tr>
 							<td class="freight"><span>不含运费</span>&nbsp;</td>
 						</tr>
 					</table>
 				</div>
-				<!--<div style="height: 1px; background-color: #d5d5d5;"></div>
-				<div style="float: left; padding: 15px 10px 0px 10px;">
-					<img src="img/choose.png" style="width: 20px; height: 20px; z-index: 1; margin-top: 1px; position: absolute;" ng-click="addAllChoose()" />
-					<img src="img/chooseSel.png" style="width: 20px; height: 20px; z-index: 2; margin-top: 1px; position: absolute;" ng-show="isAllChoose" ng-click="removeAllChoose()" />
-					<span style="padding: 12px 0px 0px 30px; font-size: 14px; color: #9e0039">全选</span>
-				</div>
-				<div style="float: right; text-align: right; padding: 16px 10px 0px 0px;">
-					<span style="color: #606060; font-size: 14px; vertical-align: top; padding-right: 5px;" ng-cloak>合计:{{allMoney}}元</span>
-					<a href="#" ng-click="totalButton()"><img src="img/total.png" width="82px" height="36px" style="z-index: 2; margin-top: -7px;" /></a>
-				</div>
-				<div style="clear: both;"></div>-->
 			</div>
 		</div>
-
 	</body>
+	<script type="text/javascript" src="js/mui.min.js" ></script>
 	<script type="text/javascript" src="com/global.js" ></script>
 	<script type="text/javascript" src="cart.js"></script>
 

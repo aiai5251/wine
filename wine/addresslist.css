@@ -2,7 +2,7 @@
 	color: black;
 }
 
-.mui-table-cell span {
+.mui-table-cell .rightSpan {
 	float: right;
 }
 

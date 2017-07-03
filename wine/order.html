@@ -11,51 +11,86 @@
 		<link rel="shortcut icon" href="">
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<link rel="stylesheet" href="css/default.css" />
+		<link rel="stylesheet" href="css/mui.min.css" />
 		<title>确认订单</title>
 		<link rel="stylesheet" href="order.css" />
 		<link rel="stylesheet" href="cart.css" />
 	</head>
+
 	<body>
-		<div ng-repeat="row in cartArray">
-			<div class="cartCell">
-				<table width="100%">
-					<tr>
-						<td rowspan="4" width="80px" style="background-image: url({{'http://img05.tooopen.com/images/20140328/sy_57806456622.jpg'}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
-						<td>
-							<div class="cartMiddleCell">
-								<div>
-									<span>法国梦幻巴蒂AOP原瓶进口幻彩干白葡萄酒1支装	</span>
-								</div>
-								<div class="clear"></div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="cartVintage">
-								年份：2013、容量：750ml
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="cartRightCell">
-								<span class="cartPrice">¥258.0</span>
-								<div class="cartNum">
-									<span>X 2</span>
-								</div>
-								<div class="clear"></div>
-							</div>
-						</td>
-					</tr>
-				</table>
+		<!--底部tabbar-->
+		<nav class="mui-bar mui-bar-tab">
+			<div class="mui-tab-item" style="color: black; width: 60%; text-align: right; padding-right: 10px;">
+				<span class="mui-tab-label">实付款:¥80</span>
 			</div>
-			<div class="sectionSpace"></div>
-		</div>
-		<div class="orderPriceCell">
-			<div>商品金额<span class="price">¥7799.00</span></div>
-			<div class="second">运费<span class="weight">（总重：7.330kg）</span><span class="price">+¥0.00</span></div>
+			<a class="mui-tab-item" style="width: 40%; background-color: red; color: white;" href="#wxPay">
+				<span class="mui-tab-label">结算</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<a ng-show="!hasConsignee" href="addresslist.html?oid={{guid}}">
+				<div style="height: 5px;"></div>
+				<div style="padding: 5px 10px 5px 35px; line-height: 35px; background-color: white; font-size: 14px; color: #333; background-image: url(img/add.png); background-repeat: no-repeat; background-size: 20px 20px; background-position: 10px center;">
+					新增收货地址
+				</div>
+			</a>
+
+			<ul ng-show="hasConsignee" class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+				<li class="mui-table-view-cell">
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-10">
+							<p><img src="img/address.png" width="18px" height="16px" style="vertical-align: middle;" /><span>宋国雨</span><span>180000000848</span></p>
+							<h4 class="address">信息化推进办公室张彦合同付款信息化信息化推进办公室张彦合同付款信息化</h4>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div style="height: 2px; background-image: url(img/border.png); background-size: 34px 2px;">
+			</div>
+			<div style="height: 5px;"></div>
+			<div class="borderDiv" ng-repeat="row in cartArray">
+				<div class="cartCell">
+					<table width="100%">
+						<tr>
+							<td rowspan="4" width="80px" style="background-image: url({{'http://img05.tooopen.com/images/20140328/sy_57806456622.jpg'}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
+							<td>
+								<div class="cartMiddleCell">
+									<div>
+										<span>法国梦幻巴蒂AOP原瓶进口幻彩干白葡萄酒1支装	</span>
+									</div>
+									<div class="clear"></div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="cartVintage">
+									年份：2013、容量：750ml
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="cartRightCell">
+									<span class="cartPrice">¥258.0</span>
+									<div class="cartNum">
+										<span>X 2</span>
+									</div>
+									<div class="clear"></div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="orderPriceCell">
+				<div>商品金额<span class="price">¥7799.00</span></div>
+				<div class="second">运费<span class="weight">（总重：7.330kg）</span><span class="price">+¥0.00</span></div>
+			</div>
 		</div>
 	</body>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<script type="text/javascript" src="com/global.js"></script>
 	<script type="text/javascript" src="order.js"></script>
+
 </html>

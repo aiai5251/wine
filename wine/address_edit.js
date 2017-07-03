@@ -21,8 +21,9 @@
 var app = angular.module("wine", []);
 app.controller("address_edit", function($scope, $http) {
 	$scope.addressid = GetQueryString("id");
-	
-	$http.get("http://192.168.1.10:8080/Student_maven/mineController/MineProductCarEmpl.do?uid=" + "1" + "&id=" + $scope.addressid).success(function(response) {
+	$scope.addressid = 113;
+	$http.get(getHeadUrl() + "mineController/MineProductCarEmpl.do?uid=" + "1" + "&id=" + $scope.addressid).success(function(response) {
+		console.log(response);
 		document.getElementById("name").value = "a";
 		document.getElementById("tel").value = "12345678910";
 		document.getElementById("cityResult").value = "北京市 昌平区";
@@ -51,7 +52,7 @@ app.controller("address_edit", function($scope, $http) {
 			return;
 		}
 
-		$http.get("http://192.168.1.10:8080/Student_maven/mineController/UpdMineAddress.do?uid=" + "1" + "&id=" + $scope.addressid + "&name=" + name + "&tel=" + tel + "&address=" + city + address).success(function(response) {
+		$http.get(getHeadUrl() + "mineController/UpdMineAddress.do?type=2&uid=" + "1" + "&id=" + $scope.addressid + "&name=" + name + "&tel=" + tel + "&address=" + city + address).success(function(response) {
 			location.href = "address_control.html";
 		});
 	}

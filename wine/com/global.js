@@ -1,5 +1,11 @@
+// 句柄
+$ = function(_this) {
+    return document.getElementById(_this);
+}
+
 function getHeadUrl() {
-	return "http://192.168.1.12:8080/Student_maven/";
+//	return "http://192.168.1.12:8080/Student_maven/";
+	return "http://main-zha.com/Student_maven/";
 }
 
 // Request

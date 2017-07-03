@@ -43,8 +43,8 @@ app.controller("address_add", function($scope, $http) {
 			return;
 		}
 
-		$http.get("http://192.168.1.10:8080/Student_maven/mineController/InsertMineAddress.do?uid=" + "1" + "&name=" + name + "&tel=" + tel + "&address=" + city + address).success(function(response) {
-
+		$http.get(getHeadUrl() + "mineController/InsertMineAddress.do?uid=" + "1" + "&name=" + name + "&tel=" + tel + "&address=" + city + address).success(function(response) {
+			location.href = "addresslist.html";
 		});
 	}
 });

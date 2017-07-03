@@ -18,48 +18,32 @@
 
 	<body>
 		<nav class="mui-bar mui-bar-tab">
-			<div class="mui-tab-item" ng-click="push()">
+			<a class="mui-tab-item" href="address_add.html">
 				<span class="mui-tab-label">新增收货地址</span>
-			</div>
+			</a>
 		</nav>
 		<div mui-content>
-			<div class="topInterval">
+			<div class="topInterval" ng-repeat="row in addrestList">
 				<ul class="mui-table-view">
 					<li class="mui-table-view-cell">
-						<div>宋国雨<span>18000000848</span></div>
-						<div class="address">北京市昌平区北方明珠北京市昌平区北方明珠北京市昌平区北方明珠</div>
-
+						<div><span ng-bind="row.name"></span><span class="rightSpan" ng-bind="row.tel"></span></div>
+						<div class="address" ng-bind="row.address"></div>
 					</li>
 					<li class="mui-table-view-cell">
 						<div>
-							<img src="img/chooseSel.png" /> 设为默认地址
-							<button type="button">删除</button>
-							<button type="button">编辑</button>
+							<img ng-show="row.isDefault" src="img/chooseSel.png" />
+							<img ng-show="!row.isDefault" src="img/choose.png" ng-click="defaultAddress(row)" />
+							设为默认地址
+							<button type="button" ng-click="delAddress(row)">删除</button>
+							<button type="button" ng-click="pushEdit(row)">编辑</button>
 						</div>
 					</li>
 				</ul>
 				<div class="clear"></div>
 			</div>
-			<!--<div class="topInterval">
-				<ul class="mui-table-view">
-					<li class="mui-table-view-cell">
-						<div>宋国雨<span>18000000848</span></div>
-						<div class="address">北京市昌平区北方明珠北京市昌平区北方明珠北京市昌平区北方明珠</div>
-
-					</li>
-					<li class="mui-table-view-cell">
-						<div>
-							<img src="img/chooseSel.png" /> 设为默认地址
-							<button type="button">删除</button>
-							<button type="button">编辑</button>
-						</div>
-					</li>
-				</ul>
-			</div>-->
 		</div>
 	</body>
 	<script type="text/javascript" src="js/mui.min.js"></script>
 	<script type="text/javascript" src="com/global.js"></script>
 	<script type="text/javascript" src="address_control.js"></script>
-
 </html>
