@@ -2,7 +2,11 @@ var app = angular.module("wine", []);
 app.controller("detail", function($scope, $http) {
 	// 获取链接的产品id
 	$scope.productId = GetQueryString("id");
+	// warning
+	$scope.productId = 34;
+	
 	$scope.cartProduct = 0;
+	$scope.defaultNum = 1;
 	var swiper = new Swiper('.swiper-container', {
 		pagination: '.swiper-pagination',
 		paginationClickable: true,
@@ -21,15 +25,35 @@ app.controller("detail", function($scope, $http) {
 		$scope.commentList = response.listcomment;
 	});
 
-	$scope.goToCart = function() {
-		location.href = "cart.html";
-	}
-
+	$scope.minsClick = function() {
+		if ($scope.defaultNum == 1) {
+		} else {
+			$scope.defaultNum -= 1;
+		}
+	};
+	$scope.plusClick = function() {
+		$scope.defaultNum += 1;
+	};
+	
+	mui.init();
+	mui('.mui-bar-tab').on('tap', 'a', function(e) {
+		var targetTab = this.getAttribute('href');
+		console.log(targetTab);
+		if (targetTab == "#addCart") {
+			$scope.addCart();
+		} else {
+			location.href = targetTab;	
+		}
+    });
 	//加入购物车
 	$scope.addCart = function() {
-		$http.get(getHeadUrl() + "homeController/AddProductCar.do?id=" + $scope.productId + "&count=1&uid=1").success(function(response) {
-			$scope.cartProduct = 1;
-		});
-	}
-
+		if ($scope.cartProduct == 1) {
+			mui.toast("已加入购物车");
+		} else {
+			$http.get(getHeadUrl() + "homeController/AddProductCar.do?id=" + $scope.productId + "&count=" + $scope.defaultNum + "&uid=1").success(function(response) {
+				$scope.cartProduct = 1;
+				mui.toast("成功加入购物车");
+			});	
+		}
+	};
 });

@@ -1,5 +1,5 @@
 var app = angular.module("wine", []);
-app.controller("goods", function($scope, $http) {
+app.controller("goods", function($scope, $http) {	
 	var swiper = new Swiper('.swiper-container', {
 		pagination: '.swiper-pagination',
 		paginationClickable: true,
@@ -22,15 +22,13 @@ app.controller("goods", function($scope, $http) {
 	
 	$scope.selectCell = function(pid) {
 		console.log(pid);
-	}
+		location.href = "detail.html?id=" + pid;
+	};
 	
-	$scope.push = function(pushId) {
-		if (pushId == 2) {
-			location.href = "cart.html";
-		} else if (pushId == 3) {
-			location.href = "my.html";
-		} else {
-			location.href = "my_qrcode.html";
-		}
-	}
+	mui.init();
+	mui('.mui-bar-tab').on('tap', 'a', function(e) {
+		var targetTab = this.getAttribute('href');
+		location.href = targetTab;
+    });
+	
 });
