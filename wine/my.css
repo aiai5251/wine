@@ -1,3 +1,8 @@
+a {
+	text-decoration: none;
+	color: #606060;
+}
+
 .headView {
 	background-image: url(img/back.jpeg);
 	background-repeat: no-repeat;
@@ -8,6 +13,7 @@
 .headView img {
 	float: left;
 	width: 75px;
+	height: 75px;
 	padding: 1px;
 	background-color: white;
 	border-radius: 100%;
@@ -20,23 +26,8 @@
 	color: white;
 	font-size: 16px;
 	padding-left: 10px;
-	line-height: 77px;
+	line-height: 75px;
 }
-/*
-.orderCellWithTop {
-	width: 100%;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 20px;
-	background-color: white;
-	border: solid;
-	border-width: 0px;
-	border-bottom-color: #e3e3e3;
-	border-bottom-width: 1px;
-	border-top-color: #e3e3e3;
-	border-top-width: 1px;
-	font-size: 14px;
-}*/
 
 .orderCellWithMiddle {
 	/*width: 100%;*/
@@ -63,6 +54,7 @@
 
 .orderRightCell span {
 	font-size: 14px;
+	color: red;
 }
 
 .orderRowImage {
