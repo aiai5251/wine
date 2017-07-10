@@ -34,3 +34,28 @@ function GetQueryInt(name) {
 
     return context == null || context == "" || context == "undefined" ? 0 : new Number(context);
 }
+
+function getUid() {	
+//	return self.GetQueryString("uid");
+	if (GetQueryString("uid").length > 0) {
+		return GetQueryString("uid");
+	}
+	var sd = localStorage.getItem("uid");
+	if (sd != undefined && sd.length != 0) {
+		return sd;
+	} else {
+		return "";
+	}
+}
+
+function getWcid() {	
+//	if (GetQueryString("wcid").length > 0) {
+//		return GetQueryString("wcid");
+//	}
+//	var sd = localStorage.getItem("wcid");
+//	if (sd != undefined && sd.length != 0) {
+//		return sd;
+//	} else {
+//		return "";
+//	}
+}

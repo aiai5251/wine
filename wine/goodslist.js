@@ -1,11 +1,18 @@
 var app = angular.module("wine", []);
 app.controller("goods", function($scope, $http) {	
+	$scope.uid = getUid();
+	if ($scope.uid.length == 0) {
+		location.href = "com/go.html?url=" + location.href;
+		return;
+	}
+	alert($scope.uid + "wcid =" + getWcid());
 	var swiper = new Swiper('.swiper-container', {
 		pagination: '.swiper-pagination',
 		paginationClickable: true,
 		autoplay: 2000,
 		loop: true
 	});
+	
 //	$scope.productList = [{"id":"1", "title": "1", "imgurl": "http://learning.didichuxing.com/resources/activity/803/2016203014203712231.jpg", "volume": "500ml", "price": "500", "submessage": "40度长白山松茸酒"},{"title": "1", "imgurl": "http://learning.didichuxing.com/resources/activity/803/2016203014203712231.jpg", "volume": "500ml", "price": "500", "submessage": "40度长白山松茸酒"}];
 	$http.get(getHeadUrl() + "homeController/HomePage.do?userid=1&page=1&pagesize=10").success(function(response) {
 		$scope.bannerList = response.listbanners;
