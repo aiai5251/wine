@@ -1,0 +1,47 @@
+.order-num {
+	background-color: white;	
+	padding-top: 52px;
+	font-size: 13px;
+	padding-left: 10px;
+	color: #999999;
+	float: left;
+}
+
+.order-state {
+	float: right; 
+	padding-top: 53px; 
+	padding-right: 10px; 
+	color: red; 
+	font-size: 14px;
+}
+
+.order-goodsname {
+	padding-top: 10px;
+	padding-left: 5px;
+	font-size: 13px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+
+.order-detail {
+	background-color: white;
+	font-size: 12px;
+	color: #AAAAAA;
+}
+
+.bottom-bar {
+	width: 100%;
+	background-color: red;
+	color: #FFFFFF;
+	height: 40px;
+	text-align: center;
+	margin-top: 10px;
+	padding-top: 10px;
+	font-size: 15px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;	
+}
