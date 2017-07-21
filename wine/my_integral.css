@@ -1,0 +1,93 @@
+
+.top {
+	padding-top: 40px;
+	width: 100%;
+	height: 200px;
+	background-color: #FFFFFF;
+}
+
+.top-detail {
+	float: right;
+	padding-top: 10px;
+	font-size: 13px;
+	width: 100%;
+	height: 40px;
+	text-align: right;
+}
+
+.top-integral {
+	width: 100%; 
+	text-align: center; 
+	padding-top: 50px; 
+	font-size: 28px;
+}
+
+.top-des {
+	width: 100%; 
+	text-align: center; 
+	padding-top: 20px; 
+	color: #333333;
+	font-size: 15px;
+}
+
+.detail {
+	width: 100%;
+	height: 200px;
+	margin-top: 10px;
+	background-color: #FFFFFF;
+}
+
+.detail-title {
+	text-align: center;
+	padding-top: 5px;
+	font-size: 15px;
+}
+
+.detail-cell {
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	padding-right: 10px;
+}
+
+.detail-cell-title {
+	width: 45px;
+	height: 45px;
+	background-color: red;
+	color: #FFFFFF;
+	padding-top: 10px;
+	text-align: center;
+	font-size: 14px;
+	float: left;
+}
+
+.detail-cell-right {
+	float: left;
+}
+
+.detail-cell-msg1 {
+	float: left;
+	margin-left: 5px;
+	font-size: 12px;
+}
+
+.detail-cell-msg2 {
+	float: left;
+	margin-left: 5px;
+	font-size: 12px;	
+}
+
+.bottom-bar {
+	width: 100%;
+	background-color: red;
+	color: #FFFFFF;
+	height: 40px;
+	text-align: center;
+	margin-top: 10px;
+	padding-top: 10px;
+	font-size: 15px;
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;	
+}
