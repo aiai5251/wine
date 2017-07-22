@@ -20,12 +20,12 @@
 		<!-- 列表 -->
 		<div style="padding-left: 10px; padding-right: 10px;">
 			<!-- cell -->
-			<div style="width: 100%; padding-top: 15px;">
+			<div style="width: 100%; padding-top: 15px;" ng-repeat="coupon in couponList">
 				<!--left-->
 				<div style="float: left; width: 70%; height: 90px; background-color: #fff1f1; border-radius: 7px;">
-					<div style="color: #fc777b; font-size: 25px; padding-left: 10px; padding-top: 5px;"><span style="font-size: 14px;">¥</span>28</div>
-					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 5px;">满580使用</div>
-					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 0px;">有效期 2017.03.01-2017.06.01</div>
+					<div style="color: #fc777b; font-size: 25px; padding-left: 10px; padding-top: 5px;"><span style="font-size: 14px;">¥</span><span ng-bind="coupon.price"></span></div>
+					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 5px;">满<span ng-bind="coupon.maxPrice"></span>使用</div>
+					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 0px;">有效期 <span ng-bind="coupon.buildTime"></span>&nbsp;<span ng-bind="coupon.endTime"></span></div>
 				</div>
 				<!--right-->
 				<div style="float: left; width: 30%; height: 90px; background-color: #fff1f1; border-radius: 7px;">
@@ -34,27 +34,13 @@
 				<div style="clear: both; height: 1px;"></div>
 			</div>
 
-			<!-- cell -->
-			<div style="width: 100%; padding-top: 15px;">
-				<!--left-->
-				<div style="float: left; width: 70%; height: 90px; background-color: #fff1f1; border-radius: 8px;">
-					<div style="color: #fc777b; font-size: 25px; padding-left: 10px; padding-top: 5px;"><span style="font-size: 14px;">¥</span>28</div>
-					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 5px;">满580使用</div>
-					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 0px;">有效期 2017.03.01-2017.06.01</div>
-				</div>
-				<!--right-->
-				<div style="float: left; width: 30%; height: 90px; background-color: #fff1f1; border-radius: 8px;">
-					<div style="color: #fc777b; font-size: 13px; text-align: center; padding-top: 37px;">立即领取</div>
-				</div>
-				<div style="clear: both; height: 1px;"></div>
-			</div>
-
 		</div>
 		
-		<div class="bottom-bar">
+		<div class="bottom-bar" ng-show="pid > 0">
 			<a style="color: white;">不使用优惠券</a>
 		</div>
 	</body>
+	<script type="text/javascript" src="com/global.js" ></script>
 	<script type="text/javascript" src="coupon.js"></script>
 
 </html>
