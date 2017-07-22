@@ -25,10 +25,15 @@ app.controller("order", function($scope, $http) {
     });
 	
 	$scope.wxPay = function() {
-		if (!$scope.hasConsignee) {
-			mui.toast("请填写收货地址信息");
-			return;
-		}	
+//		if (!$scope.hasConsignee) {
+//			mui.toast("请填写收货地址信息");
+//			return;
+//		}	
+		
+		$http.get(getHeadUrl() + "order_modify?id=1013&address_id=123&coupon_id=1&status=1&pay=598").success(function(response){
+			console.log(response);
+		});
+		
 	};
 	
 });
