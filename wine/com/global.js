@@ -36,7 +36,6 @@ function GetQueryInt(name) {
 }
 
 function getUid() {	
-	return 1;
 	if (GetQueryString("uid").length > 0) {
 		return GetQueryString("uid");
 	}
