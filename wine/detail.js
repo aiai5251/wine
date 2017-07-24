@@ -4,8 +4,8 @@ app.controller("detail", function($scope, $http) {
 	$scope.productId = GetQueryString("id");
 	$scope.uid = getUid();
 	// warning
-	$scope.productId = 46;
-	$scope.uid = 1;
+//	$scope.productId = 46;
+//	$scope.uid = 1;
 	
 	$scope.cartProduct = 0;
 	$scope.defaultNum = 1;

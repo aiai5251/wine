@@ -36,10 +36,7 @@ function GetQueryInt(name) {
 }
 
 function getUid() {	
-	if (GetQueryString("uid").length > 0) {
-		return GetQueryString("uid");
-	}
-	var sd = localStorage.getItem("uid");
+	var sd = localStorage.getItem("user_id");
 	if (sd != undefined && sd.length != 0) {
 		return sd;
 	} else {

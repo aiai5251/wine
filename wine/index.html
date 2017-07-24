@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
-<html ng-app="wine">
+<html ng-app="wine" ng-controller="index">
+
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,44 +10,85 @@
 		<meta name="format-detection" content="telephone=no">
 		<link rel="shortcut icon" href="">
 		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/mobile/layer.js"></script>
 		<link rel="stylesheet" href="js/swiper-3.4.1/swiper.min.css" />
-		<title></title>
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<title>东方酒业官网</title>
 		<link rel="stylesheet" href="index.css" />
 	</head>
+
 	<body>
-		<div ng-controller="com-header" id="comHeader"></div>
-		<div ng-controller="index" style="padding-top: 38px;">
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="cart.html">
+				<span class="mui-icon iconfont icon-gouwuche"></span>
+				<span class="mui-tab-label">购物车</span>
+			</a>
+			<a class="mui-tab-item" href="my.html">
+				<span class="mui-icon iconfont icon-center"></span>
+				<span class="mui-tab-label">个人中心</span>
+			</a>
+			<a class="mui-tab-item" href="my_qrcode.html">
+				<span class="mui-icon iconfont icon-wodeerweima"></span>
+				<span class="mui-tab-label">我的二维码</span>
+			</a>
+		</nav>
+		<!--内容-->
+		<div class="mui-content">
 			<div class="swiper-container swiper-container-horizontal">
-				<div class="swiper-wrapper">
-					<li class="swiper-slide">
-						<img style="vertical-align:top;" src="img/banner2.png" width="100%">
-					</li>
-					<li class="swiper-slide">
-						<img style="vertical-align:top;" src="img/banner2.png" width="100%">
-					</li>
+				<div id="swiperwrapper" class="swiper-wrapper">
 				</div>
 				<div style="text-align:center" class="swiper-pagination"></div>
 			</div>
-
-			<div ng-click="asd()">asdasd</div>
-			
-			<div style="height: 44px; background-color: lightgray;">
-				<div id="removeId" style="display: none;">删除</div>
-				<div style="clear: both;"></div>
+			<div ng-show="productList.length > 0" ng-repeat="row in productList">
+				<div class="borderDiv">
+					<a href="detail.html?id={{row.id}}">
+						<div style="padding: 4%; background-color: white;">
+							<table width="100%">
+								<tr>
+									<td rowspan="6" width="40%">
+										<img ng-src="{{row.image}}" style="width: 100%;" />
+									</td>
+								</tr>
+								<tr>
+									<td class="title" ng-bind="row.title"></td>
+								</tr>
+								<tr>
+									<td class="submessage" ng-bind="row.submessage"></td>
+								</tr>
+								<tr>
+									<td class="submessage" ng-bind="row.volume"></td>
+								</tr>
+								<tr>
+									<td class="price"><span>¥</span><span ng-bind="row.price"></span></td>
+								</tr>
+								<tr>
+									<td class="rightButton">
+										<a href="">
+											<button type="button" class="mui-btn mui-icon mui-icon-arrowright mui-right" ng-click="selectCell(row.id)">收入囊中</button>
+										</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</a>
+				</div>
 			</div>
-			
-		</div>
-		<div ng-controller="com-footer" id="comFooter"></div>
-		<div style="position: fixed; bottom: 0px; width: 100%; background-color: white;">
-			<a><img src="img/tab/typeSel1.png" style="width: 23%; height: 23vm;" /></a>
-			<a href="product_medium.html"><img src="img/tab/type2.png" style="width: 23%; height: 23vm" /></a>
-			<a href="product_highgrade.html"><img src="img/tab/type3.png" style="width: 23%; height: 23vm" /></a>
-			<a href="nearby_cafehouse.html"><img src="img/tab/type4.png" style="width: 23%; height: 23vm" /></a>
 		</div>
 	</body>
+	<script type="text/template" id="templateSwiper">
+		<li class="swiper-slide">
+			<img class="picture" style="vertical-align:top;" src="<%=obj.imgurl%>" width="100%" />
+		</li>
+	</script>
+	<script type="text/javascript" src="com/global.js"></script>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="js/swiper-3.4.1/swiper.min.js"></script>
-	<script type="text/javascript" src="com/com-headfooter.js" ></script>
+	<script type="text/javascript" src="js/underscore-min.js"></script>
 	<script type="text/javascript" src="index.js"></script>
 
 </html>

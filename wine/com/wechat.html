@@ -14,7 +14,7 @@
 			alert("wcid = " + wcid + "; uid = " + uid);
 			if (wcid != undefined && wcid.length != 0 && uid != undefined && uid.length != 0) {
 				localStorage.setItem("wcid", wcid);
-				localStorage.setItem("uid", uid);
+				localStorage.setItem("user_id", uid);
 				alert("state = " + GetQueryString("state"));
 				location.href = GetQueryString("state");
 			}

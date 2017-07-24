@@ -1,11 +1,7 @@
 var app = angular.module("wine", []);
 app.controller("goods", function($scope, $http) {	
 	$scope.uid = getUid();
-//	alert("goodlistUid = " + $scope.uid);
-//	if ($scope.uid.length == 0) {
-//		location.href = "com/go.html?url=" + location.href;
-//		return;
-//	}
+	
 	var swiper = new Swiper('.swiper-container', {
 		pagination: '.swiper-pagination',
 		paginationClickable: true,
