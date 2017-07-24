@@ -45,7 +45,7 @@
 								<img src="img/choose.png" class="cartChooseButton" ng-show="!row.isChoose" ng-click="addChoose(row)"/>
 							</td>
 							<td rowspan="4" width="120px">
-								<img ng-src="{{row.imgurl}}" style="width: 100%; height: 100%;"/>
+								<img ng-src="{{row.image}}" style="width: 100%;"/>
 							</td>
 							<td>
 								<div class="cartMiddleCell">
@@ -69,7 +69,7 @@
 								<div class="cartRightCell">
 									<span class="cartPrice">¥<span ng-bind="row.price"></span></span>
 									<div class="cartNum">
-										<img src="img/minus.png" ng-click="minus(row)"/> <span ng-bind="row.sum"></span> <img src="img/plus.png" ng-click="plus(row)"/>
+										<img src="img/minus.png" ng-click="minus(row)"/> <span ng-bind="row.count"></span> <img src="img/plus.png" ng-click="plus(row)"/>
 									</div>
 									<div class="clear"></div>
 								</div>

@@ -1,40 +1,24 @@
 var app = angular.module("wine", []);
 app.controller("address_control", function($scope, $http) {
-
-	$scope.addrestList = [{
-		"id": "100",
-		"name": "宋国雨",
-		"tel": "1800000000848",
-		"address": "北京市昌平区北方明珠北京市昌平区北方明珠北京市昌平区北方明珠"
-	}, {
-		"id": "113",
-		"name": "诗瑶荣",
-		"tel": "18000000848",
-		"address": "北京市昌平区北方明珠"
-	}];
-
-	for(var i = 0; i < $scope.addrestList.length; i++) {
-		$scope.address = $scope.addrestList[i];
-		if ($scope.address.id == "113") {
-			$scope.address.isDefault = true;	
-		} else {
-			$scope.address.isDefault = false;
-		}
-	}
-
+	$scope.order_num = GetQueryString("order_num");
+	$scope.uid = getUid();
+	
+	$http.get(getHeadUrl() + "address?uid=" + $scope.uid).success(function(response) {
+		$scope.addressList = response.data;
+	});
+	
 	$scope.defaultAddress = function(model) {
-		for(var i = 0; i < $scope.addrestList.length; i++) {
-			$scope.address = $scope.addrestList[i];
-			$scope.address.isDefault = false;
+		for(var i = 0; i < $scope.addressList.length; i++) {
+			$scope.address = $scope.addressList[i];
+			$scope.address.is_default = false;
 		}
-		model.isDefault = true;
-//		$http.get(getHeadUrl() + "mineController/UpdMineAddress.do?type=0&id=" + model.id).success(function(response) {
-//			model.isDefault = true;
-//		});
+		$http.get(getHeadUrl() + "address_modify?is_default=1&id=" + model.id + "&uid=" + $scope.uid).success(function(response) {
+			model.is_default = true;
+		});
 	};
 	
 	$scope.pushEdit = function(model) {
-		location.href = "address_edit.html?id=" + model.id;
+		location.href = "address_edit.html?id=" + model.id + "&order_num=" + $scope.order_num;
 	};
 
 	mui.init({
@@ -43,8 +27,8 @@ app.controller("address_control", function($scope, $http) {
    		}
 	});
 	$scope.delAddress = function(model, index) {
-		$http.get(getHeadUrl() + "mineController/UpdMineAddress.do?type=1&id=" + model.id).success(function(response) {
-			$scope.addrestList.splice(index, 1);
+		$http.get(getHeadUrl() + "address_delete?id=" + model.id).success(function(response) {
+			$scope.addressList.splice(index, 1);
 			mui.toast("删除成功");
 		});
 	};

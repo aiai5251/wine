@@ -2,8 +2,10 @@ var app = angular.module("wine", []);
 app.controller("detail", function($scope, $http) {
 	// 获取链接的产品id
 	$scope.productId = GetQueryString("id");
+	$scope.uid = getUid();
 	// warning
-	$scope.productId = 34;
+	$scope.productId = 46;
+	$scope.uid = 1;
 	
 	$scope.cartProduct = 0;
 	$scope.defaultNum = 1;
@@ -14,15 +16,19 @@ app.controller("detail", function($scope, $http) {
 		loop: true
 	});
 
-	$http.get(getHeadUrl() + "homeController/ProductInfo.do?id=" + $scope.productId).success(function(response) {
-		$scope.productInfo = response.productInfo;
+	$http.get(getHeadUrl() + "product_detail?id=" + $scope.productId).success(function(response) {
+		$scope.productInfo = response.data;
 		console.log($scope.productInfo);
 
 		$("#swiperwrapper").html("");
-		for(var i = 0; i < $scope.productInfo.imagelist.length; i++) {
-			swiper.appendSlide(_.template($('#templateSwiper').html())($scope.productInfo.imagelist[i]));
+		for(var i = 0; i < $scope.productInfo.images.length; i++) {
+			swiper.appendSlide(_.template($('#templateSwiper').html())($scope.productInfo.images[i]));
 		}
-		$scope.commentList = response.listcomment;
+		var itemimgs = document.getElementById("swiperwrapper").getElementsByClassName("picture");
+		for(var i = 0; i < itemimgs.length; i++) {
+			itemimgs[i].height = $(window).width() * 900 / 1242.0;
+		}
+		$scope.commentList = $scope.productInfo.commentList;
 	});
 
 	$scope.minsClick = function() {
@@ -50,7 +56,7 @@ app.controller("detail", function($scope, $http) {
 		if ($scope.cartProduct == 1) {
 			mui.toast("已加入购物车");
 		} else {
-			$http.get(getHeadUrl() + "homeController/AddProductCar.do?id=" + $scope.productId + "&count=" + $scope.defaultNum + "&uid=1").success(function(response) {
+			$http.get(getHeadUrl() + "cart_add?pid=" + $scope.productId + "&count=" + $scope.defaultNum + "&uid=" + $scope.uid).success(function(response) {
 				$scope.cartProduct = 1;
 				mui.toast("成功加入购物车");
 			});	

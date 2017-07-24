@@ -4,8 +4,8 @@ $ = function(_this) {
 }
 
 function getHeadUrl() {
-//	return "http://192.168.1.12:8080/Student_maven/";
-	return "http://main-zha.com/Student_maven/";
+	return "http://localhost:9090/wine/";
+//	return "http://main-zha.com/chimu/wine/";
 }
 
 // Request
@@ -36,7 +36,7 @@ function GetQueryInt(name) {
 }
 
 function getUid() {	
-//	return self.GetQueryString("uid");
+	return 1;
 	if (GetQueryString("uid").length > 0) {
 		return GetQueryString("uid");
 	}
@@ -49,13 +49,13 @@ function getUid() {
 }
 
 function getWcid() {	
-//	if (GetQueryString("wcid").length > 0) {
-//		return GetQueryString("wcid");
-//	}
-//	var sd = localStorage.getItem("wcid");
-//	if (sd != undefined && sd.length != 0) {
-//		return sd;
-//	} else {
-//		return "";
-//	}
+	if (GetQueryString("wcid").length > 0) {
+		return GetQueryString("wcid");
+	}
+	var sd = localStorage.getItem("wcid");
+	if (sd != undefined && sd.length != 0) {
+		return sd;
+	} else {
+		return "";
+	}
 }

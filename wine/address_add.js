@@ -7,7 +7,7 @@
 		});
 		cityPicker.setData(cityData);
 		var showCityPickerButton = doc.getElementById('showCityPicker');
-		var cityResult = doc.getElementById('cityResult');
+		var cityResult = doc.getElementById('province_city');
 		showCityPickerButton.addEventListener('tap', function(event) {
 			cityPicker.show(function(items) {
 				console.log(items[0].text + " " + items[1].text);
@@ -20,6 +20,9 @@
 
 var app = angular.module("wine", []);
 app.controller("address_add", function($scope, $http) {
+	$scope.order_num = GetQueryString("order_num");
+	$scope.uid = getUid();
+	
 	$scope.addAddress = function() {
 		console.log(document.getElementById("name").value);
 		var name = document.getElementById("name").value;
@@ -32,8 +35,8 @@ app.controller("address_add", function($scope, $http) {
 			mui.toast("请填写收件人电话");
 			return;
 		}
-		var city = document.getElementById('cityResult').value;
-		if(city == "省、市") {
+		var province_city = document.getElementById('province_city').value;
+		if(province_city == "省、市") {
 			mui.toast("请选择省市地址");
 			return;
 		}
@@ -43,8 +46,8 @@ app.controller("address_add", function($scope, $http) {
 			return;
 		}
 
-		$http.get(getHeadUrl() + "mineController/InsertMineAddress.do?uid=" + "1" + "&name=" + name + "&tel=" + tel + "&address=" + city + address).success(function(response) {
-			location.href = "addresslist.html";
+		$http.get(getHeadUrl() + "address_add?uid=" + $scope.uid + "&name=" + name + "&tel=" + tel + "&address=" + address + "&province_city=" + province_city).success(function(response) {
+			location.href = "addresslist.html?order_num=" + $scope.order_num;
 		});
 	}
 });

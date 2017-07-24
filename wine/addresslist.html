@@ -18,32 +18,36 @@
 
 	<body>
 		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item" href="address_control.html">
+			<a class="mui-tab-item" href="address_control.html?order_num={{order_num}}">
 				<span class="mui-tab-label">管理收货地址</span>
 				<span class="line">|</span>
 			</a>
-			<a class="mui-tab-item" href="address_add.html">
+			<a class="mui-tab-item" href="address_add.html?order_num={{order_num}}">
 				<span class="mui-tab-label">新增收货地址</span>
 			</a>
 		</nav>
 		<div class="clear"></div>
 		<div class="mui-content">
 			<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
-				<li class="mui-table-view-cell" ng-repeat="row in addrestList">
+				<li class="mui-table-view-cell" ng-repeat="row in addressList">
 					<div class="mui-table">
 						<div class="mui-table-cell mui-col-xs-10">
 							<div><span ng-bind="row.name"></span><span class="rightSpan" ng-bind="row.tel"></span></div>
-							<h4 class="address"><label ng-show="row.isDefault">[默认地址]</label> <span ng-bind="row.address"></span></h4>
+							<h4 class="address"><label ng-show="row.is_default">[默认地址]</label> <span ng-bind="row.address"></span></h4>
 						</div>
-						<div class="mui-table-cell mui-col-xs-2 mui-text-right">
-							<img ng-show="row.isDefault" src="img/chooseSel.png" style="width: 18px; height: 18px; vertical-align: bottom;" />
-							<img ng-show="!row.isDefault" src="img/choose.png" style="width: 18px; height: 18px; vertical-align: bottom;" ng-click=""/>
+						<div class="mui-table-cell mui-col-xs-2 mui-text-right" style="width: 20px; vertical-align:middle;">
+							<img ng-show="row.is_selected" src="img/chooseSel.png" style="width: 18px; height: 18px;"/>
+							<img ng-show="!row.is_selected" src="img/choose.png" style="width: 18px; height: 18px;" ng-click="selectedAddress(row)"/>
 						</div>
 					</div>
 				</li>
 			</ul>
+			<div class="addAddress">
+				<button type="button" class="mui-btn mui-btn-danger mui-btn-block" ng-click="editAddress()">保存</button>
+			</div>
 		</div>
 	</body>
+	<script type="text/javascript" src="com/global.js" ></script>
 	<script type="text/javascript" src="js/mui.min.js"></script>
 	<script type="text/javascript" src="addresslist.js"></script>
 

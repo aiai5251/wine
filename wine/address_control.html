@@ -18,12 +18,12 @@
 
 	<body>
 		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item" href="address_add.html">
+			<a class="mui-tab-item" href="address_add.html?order_num={{order_num}}">
 				<span class="mui-tab-label">新增收货地址</span>
 			</a>
 		</nav>
-		<div mui-content>
-			<div class="topInterval" ng-repeat="row in addrestList">
+		<div class="mui-content">
+			<div class="topInterval" ng-repeat="row in addressList">
 				<ul class="mui-table-view">
 					<li class="mui-table-view-cell">
 						<div><span ng-bind="row.name"></span><span class="rightSpan" ng-bind="row.tel"></span></div>
@@ -31,8 +31,8 @@
 					</li>
 					<li class="mui-table-view-cell">
 						<div>
-							<img ng-show="row.isDefault" src="img/chooseSel.png" />
-							<img ng-show="!row.isDefault" src="img/choose.png" ng-click="defaultAddress(row)" />
+							<img ng-show="row.is_default" src="img/chooseSel.png" />
+							<img ng-show="!row.is_default" src="img/choose.png" ng-click="defaultAddress(row)" />
 							设为默认地址
 							<button type="button" ng-click="delAddress(row)">删除</button>
 							<button type="button" ng-click="pushEdit(row)">编辑</button>
@@ -41,6 +41,7 @@
 				</ul>
 				<div class="clear"></div>
 			</div>
+			<div class="spaceSection"></div>
 		</div>
 	</body>
 	<script type="text/javascript" src="js/mui.min.js"></script>

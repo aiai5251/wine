@@ -18,11 +18,6 @@
 	</head>
 
 	<body>
-		<!--头部-->
-		<!--<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">东方酒业官网</h1>
-		</header>-->
-		<!--底部tabbar-->
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#tabbar">
 				<span class="mui-icon mui-icon-home"></span>
@@ -48,37 +43,39 @@
 				</div>
 				<div style="text-align:center" class="swiper-pagination"></div>
 			</div>
-			<div class="borderDiv" ng-show="productList.length > 0" ng-repeat="row in productList">
-				<a href="detail.html?id={{row.id}}">
-					<div style="padding: 4%; background-color: white;">
-						<table width="100%">
-							<tr>
-								<td rowspan="6" width="40%">
-									<img ng-src="{{row.imgurl}}" style="width: 100%; height: 100%;" />
-								</td>
-							</tr>
-							<tr>
-								<td class="title" ng-bind="row.title"></td>
-							</tr>
-							<tr>
-								<td class="submessage" ng-bind="row.submessage"></td>
-							</tr>
-							<tr>
-								<td class="submessage" ng-bind="row.volume"></td>
-							</tr>
-							<tr>
-								<td class="price"><span>¥</span><span ng-bind="row.price"></span></td>
-							</tr>
-							<tr>
-								<td class="rightButton">
-									<a href="">
-										<button type="button" class="mui-btn mui-icon mui-icon-arrowright mui-right" ng-click="selectCell(row.id)">收入囊中</button>
-									</a>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</a>
+			<div ng-show="productList.length > 0" ng-repeat="row in productList">
+				<div class="borderDiv">
+					<a href="detail.html?id={{row.id}}">
+						<div style="padding: 4%; background-color: white;">
+							<table width="100%">
+								<tr>
+									<td rowspan="6" width="40%">
+										<img ng-src="{{row.image}}" style="width: 100%;" />
+									</td>
+								</tr>
+								<tr>
+									<td class="title" ng-bind="row.title"></td>
+								</tr>
+								<tr>
+									<td class="submessage" ng-bind="row.submessage"></td>
+								</tr>
+								<tr>
+									<td class="submessage" ng-bind="row.volume"></td>
+								</tr>
+								<tr>
+									<td class="price"><span>¥</span><span ng-bind="row.price"></span></td>
+								</tr>
+								<tr>
+									<td class="rightButton">
+										<a href="">
+											<button type="button" class="mui-btn mui-icon mui-icon-arrowright mui-right" ng-click="selectCell(row.id)">收入囊中</button>
+										</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</a>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -89,8 +86,9 @@
 	</script>
 	<script type="text/javascript" src="com/global.js"></script>
 	<script type="text/javascript" src="js/mui.min.js"></script>
-	<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="js/swiper-3.4.1/swiper.min.js"></script>
 	<script type="text/javascript" src="js/underscore-min.js"></script>
 	<script type="text/javascript" src="goodslist.js"></script>
+
 </html>

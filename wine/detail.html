@@ -40,7 +40,7 @@
 			<div>
 				<div class="titleSection">
 					<span class="ziying">自营</span><span class="title"><span ng-bind="productInfo.title"></span> <span ng-bind="productInfo.volume"></span> <span ng-bind="productInfo.submessage"></span></span>
-					<div class="ad">内附精美分酒器</div>
+					<div class="ad"><span ng-bind="productInfo.description"></span></div>
 					<div class="line"></div>
 					<div class="priceNumCell">
 						<span class="price">¥ <span ng-bind="productInfo.price"></span></span>
@@ -50,7 +50,7 @@
 						</span>
 					</div>
 					<div class="numCell"><span class="numDesc">购买数量：</span><img src="img/minus.png" ng-click="minsClick()"/><span class="num" ng-bind="defaultNum"></span><img src="img/plus.png" ng-click="plusClick()"/></div>
-					<div>运费：<span ng-if="productInfo.transportmoney > 0" ng-bind="productInfo.transportmoney"></span><span ng-if="productInfo.transportmoney == 0">免运费</span></div>
+					<div>运费：<span ng-if="productInfo.freight_money > 0" ng-bind="productInfo.freight_money"></span><span ng-if="productInfo.freight_money == 0">免运费</span></div>
 				</div>
 				<div class="spaceSection"></div>
 				<div class="activitySection">
@@ -64,9 +64,9 @@
 					<div class="activityCell">积分&nbsp;&nbsp;&nbsp;<span class="activity-twoCell">购买可得<span class="integral" ng-bind="productInfo.point"></span>积分</span>
 						<a class="right-button" href="detail_integral.html?id={{productInfo.id}}">...</a>
 					</div>
-					<div ng-if="productInfo.listm.length > 0">
+					<div ng-if="productInfo.promotionList.length > 0">
 						<div class="line"></div>
-						<div class="activityCell">促销&nbsp;&nbsp;&nbsp;<span class="activity-thridCell" ng-repeat="row in productInfo.listm" ng-bind="row.name"></span>
+						<div class="activityCell">促销&nbsp;&nbsp;&nbsp;<span class="activity-thridCell" ng-repeat="row in productInfo.promotionList" ng-bind="row.name"></span>
 							<a class="right-button" href="detail_promotion.html?id={{productInfo.id}}">...</a>
 						</div>
 						<div class="clear"></div>
@@ -74,31 +74,32 @@
 				</div>
 				<div class="spaceSection"></div>
 				<div class="recommendSection" ng-show="commentList.length > 0">
-					<div>用户评价（<span ng-bind="commentList.length"></span>）<span class="rightNum">96%</span><span class="rightGood">好评度</span></div>
-					<div class="commendCell">
+					<div>用户评价（<span ng-bind="commentList.length"></span>）
+						<!--<span class="rightNum">96%</span><span class="rightGood">好评度</span>-->
+					</div>
+					<!--<div class="commendCell">
 						<div><span>味道不错（2）</span></div>
 						<div><span>快递不错（2）</span></div>
 						<div><span>包装精美（2）</span></div>
-					</div>
+					</div>-->
 					<div class="clear"></div>
 					<div>
-						<div class="commendCell_People"><img ng-src="{{commentList[0].facefile}}" /><span ng-bind="commentList[0].name"></span></div>
-						<div ng-bind="commentList[0].message"></div>
+						<div class="commendCell_People"><img ng-src="{{commentList[0].user_avatar}}" /><span ng-bind="commentList[0].user_name"></span></div>
+						<div ng-bind="commentList[0].title"></div>
 						<div class="allCommend">
-							<a href="commentlist.html?id={{productId}}"><span class="allCommend_button">查看全部评价</span></a>
+							<a href="commentlist.html?pid={{productId}}"><span class="allCommend_button">查看全部评价</span></a>
 						</div>
 					</div>
-					<div class="spaceSection"></div>
 				</div>
 				<div class="detailImage">
-					<img ng-repeat="row in productInfo.descimages" ng-src="{{row}}" />
+					<img ng-repeat="row in productInfo.desc_images" ng-src="{{row.url}}" />
 				</div>
 			</div>
 		</div>
 	</body>
 	<script type="text/template" id="templateSwiper">
 		<li class="swiper-slide">
-			<img class="picture" style="vertical-align:top;" src="<%=obj%>" width="100%" />
+			<img class="picture" style="vertical-align:top;" src="<%=obj.url%>" width="100%" />
 		</li>
 	</script>
 	<script type="text/javascript" src="com/global.js"></script>

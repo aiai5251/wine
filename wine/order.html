@@ -21,7 +21,7 @@
 		<!--底部tabbar-->
 		<nav class="mui-bar mui-bar-tab">
 			<div class="mui-tab-item" style="color: black; width: 60%; text-align: right; padding-right: 10px;">
-				<span class="mui-tab-label">实付款:¥80</span>
+				<span class="mui-tab-label">实付款:¥<span ng-bind="pay"></span> </span>
 			</div>
 			<a class="mui-tab-item" style="width: 40%; background-color: red; color: white;" href="#wxPay">
 				<span class="mui-tab-label">结算</span>
@@ -35,16 +35,21 @@
 				</div>
 			</a>
 
-			<ul ng-show="hasConsignee" class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+			<ul ng-show="hasConsignee" class="mui-table-view mui-table-view-striped mui-table-view-condensed" ng-click="gotoAddress()">
 				<li class="mui-table-view-cell">
 					<div class="mui-table">
 						<div class="mui-table-cell mui-col-xs-10">
-							<p><img src="img/address.png" width="18px" height="16px" style="vertical-align: middle;" /><span>宋国雨</span><span>180000000848</span></p>
-							<h4 class="address">信息化推进办公室张彦合同付款信息化信息化推进办公室张彦合同付款信息化</h4>
+							<p><img src="img/address.png" width="18px" height="16px" style="vertical-align: middle;" /><span ng-bind="addressInfo.name "></span><span style="float: right;" ng-bind="addressInfo.tel"></span></p>
+							<h4 class="address" ng-bind="addressInfo.address"></h4>
+							<div class="clear"></div>
+						</div>
+						<div class="mui-table-cell mui-col-xs-2 mui-text-right" style="width: 20px; vertical-align:middle;">
+							<img src="img/arrow.png" style="width: 20px; height: 20px;" />
 						</div>
 					</div>
 				</li>
 			</ul>
+			<div class="clear"></div>
 			<div style="height: 2px; background-image: url(img/border.png); background-size: 34px 2px;">
 			</div>
 			<div style="height: 5px;"></div>
@@ -52,11 +57,11 @@
 				<div class="cartCell">
 					<table width="100%">
 						<tr>
-							<td rowspan="4" width="80px" style="background-image: url({{'http://img05.tooopen.com/images/20140328/sy_57806456622.jpg'}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
+							<td rowspan="4" width="80px" style="background-image: url({{row.productInfo.image}}); background-repeat: no-repeat; background-size: 100% 100%;"></td>
 							<td>
 								<div class="cartMiddleCell">
 									<div>
-										<span>法国梦幻巴蒂AOP原瓶进口幻彩干白葡萄酒1支装	</span>
+										<span ng-bind="row.productInfo.title"></span>
 									</div>
 									<div class="clear"></div>
 								</div>
@@ -65,16 +70,16 @@
 						<tr>
 							<td>
 								<div class="cartVintage">
-									年份：2013、容量：750ml
+									容量：<span ng-bind="row.productInfo.volume"></span>ml
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<div class="cartRightCell">
-									<span class="cartPrice">¥258.0</span>
+									<span class="cartPrice">¥<span ng-bind="row.productInfo.price"></span></span>
 									<div class="cartNum">
-										<span>X 2</span>
+										X <span ng-bind="row.count"></span>
 									</div>
 									<div class="clear"></div>
 								</div>
@@ -84,8 +89,11 @@
 				</div>
 			</div>
 			<div class="orderPriceCell">
-				<div>商品金额<span class="price">¥7799.00</span></div>
-				<div class="second">运费<span class="weight">（总重：7.330kg）</span><span class="price">+¥0.00</span></div>
+				<div>商品金额<span class="price">¥<span ng-bind="order.amount"></span></span></div>
+				<!--<div class="second">运费
+					<span class="weight">（总重：7.330kg）</span>
+					<span class="price">+¥0.00</span>
+				</div>-->
 			</div>
 		</div>
 	</body>

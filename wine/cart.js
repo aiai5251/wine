@@ -3,12 +3,10 @@ app.controller("cart", function($scope, $http) {
 	$scope.isAllChoose = false;
 	$scope.cartArray = [];
 	$scope.allMoney = 0;
-	$http.get(getHeadUrl() + "mineController/MineProductCar.do?uid=1").success(function(response) {
-		if(response.listcar != undefined && response.listcar.length > 0) {
-			for(var i = 0; i < response.listcar.length; i++) {
-				$scope.cardModel = response.listcar[i];
-				$scope.cardModel.price = parseInt($scope.cardModel.price);
-				$scope.cardModel.sum = parseInt($scope.cardModel.sum);
+	$http.get(getHeadUrl() + "cart?uid=1").success(function(response) {
+		if(response.data != undefined && response.data.length > 0) {
+			for(var i = 0; i < response.data.length; i++) {
+				$scope.cardModel = response.data[i];
 				$scope.cardModel.isChoose = false;
 				$scope.cartArray.push($scope.cardModel);
 			}
@@ -18,7 +16,7 @@ app.controller("cart", function($scope, $http) {
 	// 单项操作
 	$scope.addChoose = function(model) {
 		model.isChoose = true;
-		$scope.allMoney = $scope.allMoney + model.price * model.sum;
+		$scope.allMoney = $scope.allMoney + model.price * model.count;
 			// 判断现在状态是否为全选状态
 		$scope.hasNoChoose = false;
 		for(var i = 0; i < $scope.cartArray.length; i++) {
@@ -33,23 +31,23 @@ app.controller("cart", function($scope, $http) {
 
 	$scope.removeChoose = function(model) {
 		model.isChoose = false;
-		$scope.allMoney = $scope.allMoney - model.price * model.sum;
+		$scope.allMoney = $scope.allMoney - model.price * model.count;
 		$scope.isAllChoose = false;
 	};
 	
 	// 加减
 	$scope.minus = function(model) {
-		if (model.sum == 1) {
+		if (model.count == 1) {
 			return;
 		}
-		model.sum -= 1;
+		model.count -= 1;
 		if (model.isChoose) {
 			$scope.allMoney = $scope.allMoney - model.price;	
 		}
 	}
 	
 	$scope.plus = function(model) {
-		model.sum = model.sum + 1;
+		model.count = model.count + 1;
 		if (model.isChoose) {
 			$scope.allMoney = $scope.allMoney + model.price;	
 		}
@@ -61,7 +59,7 @@ app.controller("cart", function($scope, $http) {
 		for(var i = 0; i < $scope.cartArray.length; i++) {
 			$scope.cardModel = $scope.cartArray[i];
 			$scope.cardModel.isChoose = true;
-			$scope.allMoney = $scope.allMoney + $scope.cardModel.sum * $scope.cardModel.price;
+			$scope.allMoney = $scope.allMoney + $scope.cardModel.count * $scope.cardModel.price;
 		}	
 		$scope.isAllChoose = true;
 	};
@@ -82,7 +80,7 @@ app.controller("cart", function($scope, $http) {
 	});
 	// 删除单个商品
 	$scope.removeCart = function(row, index) {
-		$http.get(getHeadUrl() + "mineController/DelMineProductCar.do?uid=" + "1" + "&id=" + row.id).success(function(response) {
+		$http.get(getHeadUrl() + "cart_delete?id=" + row.id).success(function(response) {
 			$scope.cartArray.splice(index, 1);
 			mui.toast("删除成功");
 		});
@@ -90,7 +88,7 @@ app.controller("cart", function($scope, $http) {
 	
 	// 删除购物车该商品
 	$scope.totalReomveCart = function(row) {
-		$http.get(getHeadUrl() + "mineController/DelMineProductCar.do?uid=" + "1" + "&id=" + row.id).success(function(response) {
+		$http.get(getHeadUrl() + "cart_delete?id=" + row.id).success(function(response) {
 		});
 	}
 	
@@ -109,37 +107,32 @@ app.controller("cart", function($scope, $http) {
 			return;
 		}
 		
-		// warning by shi
-		location.href = "order.html";
-		
-//		$scope.commodityguid = "";
-//		$scope.count = 0;
-//		$scope.counts = 0;
-//		$scope.amounts = 0;
-//		for(var i = 0; i < $scope.cartArray.length; i++) {
-//			$scope.cardModel = $scope.cartArray[i];
-//			if ($scope.cardModel.isChoose) { // 计算选中的
-//				$scope.commodityguid = $scope.commodityguid + $scope.cardModel.id + ",";
-//				$scope.counts = $scope.counts + $scope.cardModel.sum + ",";
-//				$scope.amounts = $scope.amounts + $scope.cardModel.price * $scope.cardModel.sum + ",";
-//				$scope.count += 1;
-//				$scope.totalReomveCart($scope.cardModel);
-//			}
-//		}
-		// warning by shi
-//		var orderAddParamData = {"uid": "1", "count" :  $scope.count, "amount": $scope.allMoney, "id": $scope.commodityguid, "counts": $scope.counts, "current": 0, "amounts": $scope.amounts};
-		
-//		$http({
-//			method: 'POST',
-//			url: getHeadUrl() + "MineProductCarEmpl",
-//			data: $.param(orderAddParamData),
-//			headers: {
-//				'Content-Type': "application/x-www-form-urlencoded"
-//			},
-//			transformRequest: angular.identity
-//		}).success(function(response) {
-//			console.log(response.body);
-//		});
+		$scope.pids = "";
+		$scope.counts = 0;
+		$scope.amounts = 0;
+		for(var i = 0; i < $scope.cartArray.length; i++) {
+			$scope.cardModel = $scope.cartArray[i];
+			if ($scope.cardModel.isChoose) { // 计算选中的
+				$scope.pids = $scope.pids + $scope.cardModel.pid + ",";
+				$scope.counts = $scope.counts + $scope.cardModel.count + ",";
+				$scope.amounts = $scope.amounts + $scope.cardModel.price * $scope.cardModel.count + ",";
+				$scope.totalReomveCart($scope.cardModel);
+			}
+		}
+
+		$http({
+			method: 'POST',
+			url: getHeadUrl() + "order_add",
+			data: "uid=" + "1" + "&pids=" + $scope.pids + "&counts=" + $scope.counts + "&amounts=" + $scope.amounts,
+			headers: {
+				'Content-Type': "application/x-www-form-urlencoded"
+			},
+			transformRequest: angular.identity
+		}).success(function(response) {
+			if (response.data != undefined && response.data.order_num.length > 0) {
+				location.href = "order.html?order_num=" + response.data.order_num;	
+			}
+		});
 		
 	}
 });
