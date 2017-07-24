@@ -9,14 +9,28 @@
 		<meta name="format-detection" content="telephone=no">
 		<link rel="shortcut icon" href="">
 		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/mobile/layer.js"></script>
-		<link rel="stylesheet" href="css/default.css" />
+<!--		<script type="text/javascript" src="js/mobile/layer.js"></script>
+-->		<link rel="stylesheet" href="css/default.css" />
 		<title>积分明细</title>
 		<link rel="stylesheet" href="my_integral_detail.css" />
 	</head>
 	<body>
+		<div class="cell" ng-repeat="model in pointList">
+			<div style="float: left;">
+				<div class="des"><span ng-bind="model.desciption"></span></div>
+				<div class="time"><span ng-bind="model.create_time"></span></div>
+			</div>
+			<div style="float: right;">
+				<div class="point">
+					<span ng-show="model.type == 0">-</span>
+					<span ng-show="model.type != 0">+</span>
+					<span ng-bind="model.point"></span>
+				</div>
+			</div>
+		</div>
 		
 	</body>
+	<script type="text/javascript" src="com/global.js" ></script>
 	<script type="text/javascript" src="my_integral_detail.js"></script>
 
 </html>

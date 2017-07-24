@@ -1,0 +1,38 @@
+
+.cell {
+	width: 100%; 
+	background-color: white; 
+	height: 60px; 
+	border-style: solid; 
+	border-width: 0.5px; 
+	border-color: #b2b2b2; 
+	border-left-style: none; 
+	border-right-style: none; 
+	border-top-style: none;
+}
+
+.des {
+	padding-left: 5px;
+	padding-top: 10px; 
+	color: #333333; 
+	font-size: 14px;
+}
+
+.time {
+	padding-top: 3px;
+	padding-left: 5px;
+	padding-bottom: 10px;
+	font-size: 12px; 
+	color: #777777;
+}
+
+.point {
+	float: right; 
+	padding-bottom: 10px;
+	padding-top: 17px;
+	padding-right: 5px;
+	color: red;
+	font-size: 15px;
+}
+
+

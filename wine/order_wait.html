@@ -15,30 +15,31 @@
 		<link rel="stylesheet" href="order_wait.css" />
 	</head>
 	<body>
+		<!--<div ng-repeat="model in listPay">-->
 		<div>
 			<div class="orderNumCell">
 				<div class="orderType">等待买家付款</div>
-				<div>订单编号:20173012312903901</div>
+				<div style="font-size: 13px;">订单编号:<span ng-bind="model.orderNum"></span></div>
 				<div class="clear"></div>
 			</div>
 			<div class="orderCell">
 				<table width="100%">
 					<tbody>
 						<tr>
-							<td rowspan="4" width="80px" height="80px" style="background-image: url({{'http://img05.tooopen.com/images/20140328/sy_57806456622.jpg'}}); background-repeat: no-repeat; background-size: 100% 100%;">
+							<td rowspan="4" width="80px" height="80px" style="background-image: url({{model.img}}); background-repeat: no-repeat; background-size: 100% 100%;">
 							</td>
-							<td class="title">法国梦幻巴蒂AOP原瓶进口幻彩干白葡萄酒1支装</td>
+							<td class="title"><span ng-bind="model.submessage"></span></td>
 							<td style="vertical-align: top;">
-								<div>¥258.0</div>
-								<div style="color: #ACACB4;"><del>¥400.0</del></div>
-								<div style="color: #ACACB4; text-align: right;">x1</div>
+								<div><span ng-bind="model.price"></span></div>
+								<div style="color: #ACACB4;"><del><span ng-bind="model.origprice"></span></del></div>
+								<div style="color: #ACACB4; text-align: right;">x<span ng-bind="model.count"></span></div>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div class="priceCell">
-				<div class="price">共1件商品 合计：<span>¥258.0</span>（含运费：¥0.00）</div>
+				<div class="price">共<span ng-bind="model.count"></span>件商品 合计：¥258.0（含运费：¥<span ng-bind="model.transportmoney"></span>）</div>
 				<div class="clear"></div>
 			</div>
 			<div class="line"></div>

@@ -51,7 +51,5 @@ app.controller("order", function($scope, $http) {
 //		$http.get(getHeadUrl() + "order_modify?id=" + $scope.order.id + "&address_id=" + $scope.addressInfo.id + "&status=1" + "&pay=" + $scope.pay).success(function(response) {
 //			location.href = getHeadUrl() + "/wechat_pay?order_no=2017071516238080&amount=0.1&wcid=" + getWcid();	
 //		});
-				
-	};
 	
 });

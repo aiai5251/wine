@@ -6,6 +6,7 @@
 .orderNumCell .orderType {
 	float: right;
 	color: red;
+	font-size: 13px;
 }
 
 .orderCell {
@@ -14,8 +15,9 @@
 
 .orderCell .title {
 	vertical-align: top;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 13px;
 }
 
 .priceCell {
