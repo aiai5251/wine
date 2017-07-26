@@ -3,9 +3,11 @@ app.controller("detail", function($scope, $http) {
 	// 获取链接的产品id
 	$scope.productId = GetQueryString("id");
 	$scope.uid = getUid();
-	// warning
-//	$scope.productId = 46;
-//	$scope.uid = 1;
+	
+	if ($scope.uid.length == 0) {
+		location.href = "com/go.html?url=" + location.href;
+		return;
+	}
 	
 	$scope.cartProduct = 0;
 	$scope.defaultNum = 1;

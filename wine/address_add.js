@@ -20,9 +20,12 @@
 
 var app = angular.module("wine", []);
 app.controller("address_add", function($scope, $http) {
-	$scope.order_num = GetQueryString("order_num");
+	$scope.oid = GetQueryString("oid");
 	$scope.uid = getUid();
-	
+	if ($scope.uid.length == 0) {
+		location.href = "com/go.html?url=" + location.href;
+		return;
+	}
 	$scope.addAddress = function() {
 		console.log(document.getElementById("name").value);
 		var name = document.getElementById("name").value;
@@ -47,7 +50,7 @@ app.controller("address_add", function($scope, $http) {
 		}
 
 		$http.get(getHeadUrl() + "address_add?uid=" + $scope.uid + "&name=" + name + "&tel=" + tel + "&address=" + address + "&province_city=" + province_city).success(function(response) {
-			location.href = "addresslist.html?order_num=" + $scope.order_num;
+			location.href = "addresslist.html?oid=" + $scope.oid;
 		});
 	}
 });

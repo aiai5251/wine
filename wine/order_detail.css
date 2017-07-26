@@ -1,6 +1,6 @@
 .order-num {
 	background-color: white;	
-	padding-top: 52px;
+	padding-top: 5px;
 	font-size: 12px;
 	padding-left: 10px;
 	color: #999999;
@@ -9,7 +9,7 @@
 
 .order-state {
 	float: right; 
-	padding-top: 53px; 
+	padding-top: 5px; 
 	padding-right: 10px; 
 	color: red; 
 	font-size: 12px;
@@ -17,7 +17,6 @@
 
 .order-goodsname {
 	padding-top: 10px;
-	padding-left: 5px;
 	font-size: 13px;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;

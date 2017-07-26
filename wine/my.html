@@ -18,11 +18,6 @@
 	</head>
 
 	<body>
-
-		<!--头部-->
-		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">东方酒业官网</h1>
-		</header>
 		<!--底部tabbar-->
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item" href="goodslist.html">
@@ -51,21 +46,25 @@
 			</div>
 
 			<div class="orderCellWithMiddle">
+				<a href="my_order.html">
 				<span>我的订单</span>
 				<span class="orderRightCell">
 					查看所有订单
 					<img class="orderRightImage" src="img/arrow.png"/>
 				</span>
 				<div class="clear"></div>
+				</a>
 			</div>
 
 			<div class="orderCellWithMiddle" style="padding: 10px 0px;">
 				<ul class="imagelist">
 					<div ng-repeat="row in orderStatusArray">
+						<a href="{{row.href}}">
 						<li>
 							<img ng-src="{{row.icon}}" />
 							<p><span ng-bind="row.title"></span></p>
 						</li>
+						</a>
 					</div>
 				</ul>
 				<div class="clear"></div>
@@ -73,19 +72,12 @@
 
 			<div class="sectionSpace"></div>
 
-			<!--<div class="orderCellWithMiddle" ng-repeat="row in dataArray">
-				<span ng-bind="row.title"></span>
-				<span class="orderRightCell">
-					<span ng-show="row.hasRight" ng-bind=""></span>
-					<img class="orderRightImage" src="img/arrow.png" />
-				</span>
-			</div>-->
 			<div ng-repeat="row in sectionArray">
 				<div class="orderCellWithMiddle" ng-repeat="rowModel in row" >
 					<a href="{{rowModel.href}}">
 					<span ng-bind="rowModel.title"></span>
 					<span class="orderRightCell">
-						<span ng-show="rowModel.hasRight" ng-bind="rowModel.desc"></span>
+						<span ng-show="rowModel.hasRight && rowModel.desc > 0" ng-bind="rowModel.desc"></span>
 						<img class="orderRightImage" src="img/arrow.png" />
 					</span>
 					</a>

@@ -20,7 +20,7 @@
 
 var app = angular.module("wine", []);
 app.controller("address_edit", function($scope, $http) {
-	$scope.order_num = GetQueryString("order_num");
+	$scope.oid = GetQueryString("oid");
 	$scope.addressid = GetQueryString("id");
 
 	$http.get(getHeadUrl() + "address?id=" + $scope.addressid).success(function(response) {
@@ -54,7 +54,7 @@ app.controller("address_edit", function($scope, $http) {
 		}
 
 		$http.get(getHeadUrl() + "address_modify?id=" + $scope.addressid + "&name=" + name + "&tel=" + tel + "&address=" + address + "&province_city=" + province_city).success(function(response) {
-			location.href = "address_control.html?order_num=" + $scope.order_num;
+			location.href = "address_control.html?oid=" + $scope.oid;
 		});
 	}
 	 

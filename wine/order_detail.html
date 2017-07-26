@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="wine" ng-controller="order_detail">
+
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,87 +9,120 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="format-detection" content="telephone=no">
 		<link rel="shortcut icon" href="">
-		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/mobile/layer.js"></script>
 		<link rel="stylesheet" href="css/default.css" />
 		<title>订单详情</title>
 		<link rel="stylesheet" href="order_detail.css" />
 		<link rel="stylesheet" href="css/mui.min.css" />
 	</head>
+
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-icon mui-icon-left-nav mui-action-back mui-pull-left"></a>
-			<h1 class="mui-title">订单详情</h1>
-		</header>
 		<!-- 订单编号 -->
-		<div style="width: 100%; height: 80px; background-color: white;">
-			<div class="order-num">订单编号：2016121316362410435</div>
-			<div class="order-state">已完成</div>
+		<div style="width: 100%; height: 30px; background-color: white;">
+			<div class="order-num">订单编号：<span ng-bind="order.order_num"></span></div>
+			<div class="order-state" ng-switch on="order.status">
+				<span ng-switch-when="0">
+					待支付
+				</span>
+				<span ng-switch-when="1">
+					待发货
+				</span>
+				<span ng-switch-when="2">
+					待收货
+				</span>
+				<span ng-switch-when="3">
+					已完成
+				</span>
+				<span ng-switch-when="4">
+					已取消
+				</span>
+			</div>
 		</div>
 		<!-- 收货人、收货地址 -->
-		<div style="margin-top: 10px; width: 100%;  clear: both; background-color: white;">
-			<div style="font-size: 13px; padding-top: 10px; padding-left: 10px;">收货人：刘洋</div>
-			<div style="font-size: 13px; padding-top: 5px; padding-left: 10px;">手机号：15590205753</div>
-			<div style="font-size: 13px; padding: 10px; padding-top: 5px;">收货地址：吉林省 四平市 海丰大街1537号 吉林师范大学一舍 327 02号床</div>
+		<div ng-show="order.address_id > 0" style="margin-top: 10px; width: 100%;  clear: both; background-color: white;">
+			<div style="font-size: 13px; padding-top: 10px; padding-left: 10px;">收货人：<span ng-bind="order.addressInfo.name"></span></div>
+			<div style="font-size: 13px; padding-top: 5px; padding-left: 10px;">手机号：<span ng-bind="order.addressInfo.tel"></span></div>
+			<div style="font-size: 13px; padding: 10px; padding-top: 5px;">收货地址：<span ng-bind="order.addressInfo.province_city"></span><span ng-bind="order.addressInfo.address"></span></div>
 		</div>
 		<!-- 订单商品 -->
 		<div style="width: 100%; margin-top: 10px; background-color: white;">
 			<!-- cell -->
-			<div style="width: 100%; height: 120px;">
-				<img src="img/back.jpeg" style="width: 100px; height: 100px; margin-top: 10px; margin-left: 10px; float: left;" />
-				<!-- 中间 -->
-				<div style="float: left; width: 45%;">
-					<div class="order-goodsname">【新年价】L'OREAL 欧莱雅男士火山呀控油祛痘3件套组合 清洁毛孔</div>
-					<div style="font-size: 12px; padding-left: 5px; color: #808080; padding-top: 5px;">化妆品净含量：套装容量</div>
-					<div style="font-size: 11px; width: 50px; height: 20px; color: red; padding-left: 5px;">七天退换</div>
+			<div style="width: 100%; height: 120px;" ng-repeat="orderDetail in order.orderDetails">
+				<!-- 横线-->
+				<div ng-show="$index != 0" style="height: 1px; background-color: #D5D5D5; clear: both; padding-top: 0px;"></div>
+				<img src="{{orderDetail.productInfo.image}}" style="width: 100px; height: 100px; margin-top: 10px; margin-left: 10px; float: left;" />
+				<div style="padding-left: 120px;">
+					<div class="order-goodsname"><span ng-bind="orderDetail.productInfo.title"></span></div>
+					<div style="font-size: 12px;  color: #808080; padding-top: 5px;">容量：<span ng-bind="orderDetail.productInfo.vloume">ML</span></div>
+					<div style="font-size: 11px; color: red;">七天退换</div>
+					<div style="text-align: right;">
+						<div style="font-size: 13px; padding-right: 5px;">¥199.00 X 1</div>
+					</div>
 				</div>
-				<!-- 最右侧 -->
-				<div style="float: right; width: 20%;">
-					<div style="text-align: right; font-size: 13px; padding-top: 10px; padding-right: 5px;">¥199.00</div>
-					<div style="text-align: right; font-size: 13px; padding-right: 5px; color: #808080;"><del>¥255.00</del></div>
-					<div style="font-size: 13px; padding-right: 5px; color: #808080; text-align: right;">x1</div>
-				</div>
-				<div style="width: 100%; height: 1px; clear: both; padding-top: 9px;"></div>
-				<div style="width: 100%; background: #b2b2b2; height: 0.5px; padding-top: ;"></div>
 			</div>
 		</div>
-		
+		</div>
+
 		<!-- 留言、下单时间 -->
 		<div style="width: 100%; background-color: white; margin-top: 10px;">
-			<div style="padding: 10px; font-size: 13px; color: #888888;">留言：已收货</div>
-			<div style="height: 0.5px; background-color: #BBBBBB;"></div>
-			<div style="padding: 10px; font-size: 13px; color: #888888;">下单时间：2016-12-13 16:36:24</div>
+			<div ng-show="order.memo.length > 0">
+				<div style="padding: 10px; font-size: 13px; color: #888888;">留言：已收货</div>
+				<div style="height: 0.5px; background-color: #BBBBBB;"></div>
+			</div>
+			<div style="padding: 10px; font-size: 13px; color: #888888;">下单时间：<span ng-bind="order.create_time"></span></div>
 		</div>
-		
+
+		<div style="height: 10px;"></div>
 		<!-- 订单花费明细 -->
-		<div style="width: 100%; background-color: white; margin-top: 10px; height: 100px;">
-			<div style="float: left; background-color: white; padding-top: 10px; padding-left: 10px;">
-				<div style="font-size: 12px; color: #AAAAAA;">商品总价</div>
-				<div style="font-size: 12px; color: #AAAAAA;">运费（快递）</div>
-				<div style="font-size: 14px; color: #333333;">订单总价</div>				
-				<div style="font-size: 14px; color: #333333;">实付款</div>
-			</div>
-			<div style="float: right; background-color: white; padding-top: 10px; padding-right: 10px;">
-				<div style="font-size: 12px; color: #AAAAAA; text-align: right;">¥274.00</div>
-				<div style="font-size: 12px; color: #AAAAAA;  text-align: right;">¥0.00</div>
-				<div style="font-size: 14px; color: #333333;  text-align: right;">¥254.00</div>
-				<div style="font-size: 14px; color: red;  text-align: right;">¥254.00</div>				
+		<div style="width: 100%; background-color: white;">
+			<div style="padding:10px; font-size: 14px; color: #333333;">
+				<div>
+					<div style="float: left;">订单总价</div>
+					<div style="float: right;">¥<span ng-bind="order.amount"></span></div>
+					<div style="clear: both;"></div>
+				</div>
+				<div>
+					<div style="float: left;">实际支付</div>
+					<div style="float: right; color: red;">¥<span ng-bind="order.pay"></span></div>
+					<div style="clear: both;"></div>
+				</div>
 			</div>
 		</div>
-		
+		<div style="clear: both;"></div>
+		<div style="height: 10px;"></div>
 		<!-- 积分、联系客服 -->
-		<div style="width: 100%; margin-top: 10px; background-color: white; height: 80px;">
-			<div style="padding: 10px; font-size: 13px; color: #888888;">返积分<span style="color: red;">126</span>点</div>
+		<div ng-show="order.point > 0" style="width: 100%; background-color: white; padding: 10px 10px 0px 10px; font-size: 13px;">
+			<div style="color: #888888; padding-bottom: 10px;">返积分<span style="color: red;" ng-bind="order.point"></span>点</div>
 			<div style="height: 0.5px; background-color: #BBBBBB;"></div>
-			<div style="padding: 10px; font-size: 13px; color: #888888; text-align: center;"><img src="img/phone.png" style="width: 15px;" />&nbsp;&nbsp;联系客服MM</div>
 		</div>
+
+		<div style="padding: 10px; font-size: 13px; background-color: white; ">
+			<div style="font-size: 13px; color: #888888; text-align: center;"><img src="img/phone.png" style="width: 15px;" />&nbsp;&nbsp;联系客服MM</div>
+		</div>
+		<div style="height: 60px;"></div>
 		
 		<div class="bottom-bar">
-			<a href="" style="color: white;">付款／评价／确认收货</a>
+			<div ng-switch on="order.status">
+				<span ng-switch-when="0">
+					<a href="order.html?id={{order.id}}" style="color: white;">付款</a>
+				</span>
+				<span ng-switch-when="1">
+					等待卖家发货
+				</span>
+				<span ng-switch-when="2" ng-click="makeSureAction()">
+					请确认收货
+				</span>
+				<span ng-switch-when="3">
+					订单已完成
+				</span>
+				<span ng-switch-when="4">
+					订单已取消
+				</span>
+			</div>
 		</div>
-		
-		<div style="height: 100px;"></div>
+
 	</body>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="com/global.js"></script>
 	<script type="text/javascript" src="order_detail.js"></script>
 
 </html>

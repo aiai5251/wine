@@ -1,9 +1,16 @@
 var app = angular.module("wine", []);
 app.controller("cart", function($scope, $http) {
+	$scope.uid = getUid();
+	
+	if ($scope.uid.length == 0) {
+		location.href = "com/go.html?url=" + location.href;
+		return;
+	}
+	
 	$scope.isAllChoose = false;
 	$scope.cartArray = [];
 	$scope.allMoney = 0;
-	$http.get(getHeadUrl() + "cart?uid=1").success(function(response) {
+	$http.get(getHeadUrl() + "cart?uid=" + $scope.uid).success(function(response) {
 		if(response.data != undefined && response.data.length > 0) {
 			for(var i = 0; i < response.data.length; i++) {
 				$scope.cardModel = response.data[i];
@@ -116,21 +123,21 @@ app.controller("cart", function($scope, $http) {
 				$scope.pids = $scope.pids + $scope.cardModel.pid + ",";
 				$scope.counts = $scope.counts + $scope.cardModel.count + ",";
 				$scope.amounts = $scope.amounts + $scope.cardModel.price * $scope.cardModel.count + ",";
-				$scope.totalReomveCart($scope.cardModel);
+//				$scope.totalReomveCart($scope.cardModel);
 			}
 		}
 
 		$http({
 			method: 'POST',
 			url: getHeadUrl() + "order_add",
-			data: "uid=" + "1" + "&pids=" + $scope.pids + "&counts=" + $scope.counts + "&amounts=" + $scope.amounts,
+			data: "uid=" + $scope.uid + "&pids=" + $scope.pids + "&counts=" + $scope.counts + "&amounts=" + $scope.amounts,
 			headers: {
 				'Content-Type': "application/x-www-form-urlencoded"
 			},
 			transformRequest: angular.identity
 		}).success(function(response) {
-			if (response.data != undefined && response.data.order_num.length > 0) {
-				location.href = "order.html?order_num=" + response.data.order_num;	
+			if (response.data != undefined && response.data.id.length > 0) {
+				location.href = "order.html?id=" + response.data.id;	
 			}
 		});
 		

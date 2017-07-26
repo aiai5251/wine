@@ -1,10 +1,16 @@
 var app = angular.module("wine", []);
 app.controller("my", function($scope, $http) {
+	$scope.uid = getUid();
+	if ($scope.uid.length == 0) {
+		location.href = "com/go.html?url=" + location.href;
+		return;
+	}
+	
 	$scope.orderStatusArray = [
-		{"title": "待付款", "icon": "img/waitpay.png", "href": "order_wait.html?type=0"},
-		{"title": "待发货", "icon": "img/waitsend.png"},
-		{"title": "待收货", "icon": "img/waitsend.png"},
-		{"title": "已完成", "icon": "img/waitsend.png"}
+		{"title": "待付款", "icon": "img/waitpay.png", "href": "my_order.html?status=0"},
+		{"title": "待发货", "icon": "img/waitsend.png", "href": "my_order.html?status=1"},
+		{"title": "待收货", "icon": "img/waittake.png", "href": "my_order.html?status=2"},
+		{"title": "已完成", "icon": "img/waitfinish.png", "href": "my_order.html?status=3"}
 	];
 	
 	$scope.section1Array = [
@@ -14,7 +20,7 @@ app.controller("my", function($scope, $http) {
 	];
 	
 	$scope.section2Array = [
-		{"title": "优惠券", "icon": "tuiguang.png", "hasRight": true, "desc": "", "href": "coupon.html"},
+		{"title": "优惠券", "icon": "tuiguang.png", "hasRight": true, "desc": "", "href": "coupon.html?status=2"},
 		{"title": "我的积分", "icon": "orderlist.png", "hasRight": true, "desc": "", "href": "my_integral.html"},
 	];
 	
@@ -23,17 +29,13 @@ app.controller("my", function($scope, $http) {
 		{"title": "客服", "icon": "tel.png", "hasRight": false, "desc": "", "href": "tel:10086"}
 	];
 	
-	$http.get(getHeadUrl() + "mineController/MemberCenter.do?uid=" + "1").success(function(response) {
-		$scope.mineInfo = response.mineInfo;
+	$http.get(getHeadUrl() + "my?id=" + $scope.uid).success(function(response) {
+		$scope.mineInfo = response.data;
 		$scope.section1Array[0].desc = $scope.mineInfo.award;
-		$scope.section2Array[0].desc = $scope.mineInfo.couPonCount;
+		$scope.section2Array[0].desc = $scope.mineInfo.coupon_count;
 		$scope.section2Array[1].desc = $scope.mineInfo.point;
 		$scope.sectionArray = [$scope.section1Array, $scope.section2Array, $scope.section3Array];
 	});
-	
-	
-	
-	
 	
 	mui.init();
 	mui('.mui-bar-tab').on('tap', 'a', function(e) {

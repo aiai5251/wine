@@ -11,11 +11,9 @@
 		<script type="text/javascript">
 			var wcid = GetQueryString("wcid");
 			var uid = GetQueryString("uid");
-			alert("wcid = " + wcid + "; uid = " + uid);
 			if (wcid != undefined && wcid.length != 0 && uid != undefined && uid.length != 0) {
 				localStorage.setItem("wcid", wcid);
 				localStorage.setItem("user_id", uid);
-				alert("state = " + GetQueryString("state"));
 				location.href = GetQueryString("state");
 			}
 		</script>

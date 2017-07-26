@@ -28,7 +28,7 @@
 			</a>
 		</nav>
 		<div class="mui-content">
-			<a ng-show="!hasConsignee" href="addresslist.html?oid={{guid}}">
+			<a ng-show="!hasConsignee" href="addresslist.html?oid={{oid}}">
 				<div style="height: 5px;"></div>
 				<div style="padding: 5px 10px 5px 35px; line-height: 35px; background-color: white; font-size: 14px; color: #333; background-image: url(img/add.png); background-repeat: no-repeat; background-size: 20px 20px; background-position: 10px center;">
 					新增收货地址
@@ -88,12 +88,26 @@
 					</table>
 				</div>
 			</div>
+
+			<div>
+				<div class="orderCellWithMiddle" ng-click="chooseCoupon()">
+					<span>优惠券</span>
+					<span class="orderRightCell">
+						<span ng-show="order.coupon_id == 0" class="gray">暂未选择可用优惠券</span>
+					<span ng-show="order.coupon_id > 0" class="red">
+						- <span ng-bind="order.couponInfo.price"></span>
+					</span>
+					<img class="orderRightImage" src="img/arrow.png" />
+					</span>
+				</div>
+				<div class="sectionSpace"></div>
+			</div>
+
 			<div class="orderPriceCell">
-				<div>商品金额<span class="price">¥<span ng-bind="order.amount"></span></span></div>
-				<!--<div class="second">运费
-					<span class="weight">（总重：7.330kg）</span>
-					<span class="price">+¥0.00</span>
-				</div>-->
+				<div>商品金额<span class="price">¥<span ng-bind="order.amount"></span></span>
+				</div>
+				<div class="second">免邮费
+				</div>
 			</div>
 		</div>
 	</body>

@@ -1,8 +1,13 @@
 var app = angular.module("wine", []);
 app.controller("address_control", function($scope, $http) {
-	$scope.order_num = GetQueryString("order_num");
+	$scope.oid = GetQueryString("oid");
 	$scope.uid = getUid();
-	
+
+	if ($scope.uid.length == 0) {
+		location.href = "com/go.html?url=" + location.href;
+		return;
+	}
+
 	$http.get(getHeadUrl() + "address?uid=" + $scope.uid).success(function(response) {
 		$scope.addressList = response.data;
 	});
@@ -18,7 +23,7 @@ app.controller("address_control", function($scope, $http) {
 	};
 	
 	$scope.pushEdit = function(model) {
-		location.href = "address_edit.html?id=" + model.id + "&order_num=" + $scope.order_num;
+		location.href = "address_edit.html?id=" + model.id + "&oid=" + $scope.oid;
 	};
 
 	mui.init({

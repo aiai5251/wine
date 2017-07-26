@@ -1,3 +1,8 @@
+.none {
+	padding-top: 80px;
+	text-align: center;
+}
+
 .orderNumCell {
 	background-color: white;
 	padding: 10px 5px;

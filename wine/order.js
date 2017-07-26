@@ -1,11 +1,14 @@
 var app = angular.module("wine", []);
 app.controller("order", function($scope, $http) {
-	$scope.order_num = GetQueryString("order_num");
+	$scope.oid = GetQueryString("id");
 	$scope.uid = getUid();
 	$scope.wcid = getWcid();
-//	$scope.order_num = "1500876221417";
-//	$scope.wcid = "as";
-//	$scope.uid = 1;
+	
+	if ($scope.uid.length == 0) {
+		location.href = "com/go.html?url=" + location.href;
+		return;
+	}
+	
 	$scope.hasConsignee = false; // 是否有收货人信息
 	$scope.isFinished = false; // 订单已完成状态
 	$scope.pay = 0;
@@ -17,14 +20,21 @@ app.controller("order", function($scope, $http) {
 		}
 	});
 	
-	$http.get(getHeadUrl() + "order?order_num=" + $scope.order_num).success(function(response) {
+	$http.get(getHeadUrl() + "order?id=" + $scope.oid).success(function(response) {
 		$scope.order = response.data;
 		$scope.cartArray = $scope.order.orderDetails;
 		$scope.pay = $scope.order.amount;
+		if ($scope.order.coupon_id > 0) {
+			$scope.pay = $scope.pay - $scope.order.couponInfo.price;
+		}
 	});
 	
 	$scope.gotoAddress = function() {
-		location.href = "addresslist.html?order_num=" + $scope.order_num;
+		location.href = "addresslist.html?oid=" + $scope.oid;
+	}
+	
+	$scope.chooseCoupon = function() {
+		location.href = "order_coupon.html?oid=" + $scope.order.id + "&coupon_id=" + $scope.order.coupon_id + "&amount=" + $scope.order.amount;
 	}
 	
 	mui.init({
@@ -47,8 +57,8 @@ app.controller("order", function($scope, $http) {
 			return;
 		}
 		
-		$scope.pay = 0.1;
-		location.href = getHeadUrl() + "/wechat_pay?order_num=" + $scope.order_num + "&amount=" + $scope.pay + "&wcid=" + $scope.wcid;
+		$scope.pay = 0.1 * 100;
+		location.href = getHeadUrl() + "/wechat_pay?order_num=" + $scope.order.order_num + "&amount=" + $scope.pay + "&wcid=" + $scope.wcid;
 //		$http.get(getHeadUrl() + "order_modify?id=" + $scope.order.id + "&address_id=" + $scope.addressInfo.id + "&status=1" + "&pay=" + $scope.pay).success(function(response) {
 //			location.href = getHeadUrl() + "/wechat_pay?order_no=2017071516238080&amount=0.1&wcid=" + getWcid();	
 //		});

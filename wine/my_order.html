@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html ng-app="wine" ng-controller="my_order">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="shortcut icon" href="">
+		<link rel="stylesheet" href="css/default.css" />
+		<title>订单</title>
+		<link rel="stylesheet" href="my_order.css" />
+	</head>
+
+	<body>
+		<div ng-show="orderList.length == 0 && status != null">
+			<div class="none" ng-switch on="status">
+				<div ng-switch-when="0">
+					<div><img src="img/waitpay.png" width="30px" height="30px" /></div>
+					<div>目前没有待付款订单</div>
+				</div>
+				<div ng-switch-when="1">
+					<div><img src="img/waitsend.png" width="30px" height="30px" /></div>
+					<div>目前没有待发货订单</div>
+				</div>
+				<div ng-switch-when="2">
+					<div><img src="img/waittake.png" width="30px" height="30px" /></div>
+					<div>目前没有待确认订单</div>
+				</div>
+				<div ng-switch-when="3">
+					<div><img src="img/waitfinish.png" width="30px" height="30px" /></div>
+					<div>目前没有完成订单</div>
+				</div>
+			</div>
+		</div>
+
+		<div ng-repeat="model in orderList">
+			<div ng-click="gotoDetail(model)">
+				<div class="orderNumCell">
+					<div class="orderType" ng-switch on="model.status">
+						<span ng-switch-when="0">
+						等待买家付款
+					</span>
+						<span ng-switch-when="1">
+						等待卖家发货
+					</span>
+						<span ng-switch-when="2">
+						请确认收货
+					</span>
+						<span ng-switch-when="3">
+						订单已完成
+					</span>
+						<span ng-switch-when="4">
+						订单已取消
+					</span>
+					</div>
+
+					<div style="font-size: 13px;">订单编号:<span ng-bind="model.order_num"></span></div>
+					<div class="clear"></div>
+				</div>
+				<div ng-repeat="orderDetail in model.orderDetails">
+					<div class="orderCell">
+						<table width="100%">
+							<tbody>
+								<tr>
+									<td rowspan="4" width="80px" height="80px">
+										<img ng-src="{{orderDetail.productInfo.image}} " width="100% " height="100% " />
+									</td>
+									<td class="title"><span ng-bind="orderDetail.productInfo.title"></span></td>
+									<td style="vertical-align: bottom; text-align: right;">
+										<div style="color: #ACACB4;">
+											<del><span ng-show="orderDetail.productInfo.origprice > 0" ng-bind="orderDetail.productInfo.origprice"></span></del>
+										</div>
+										<div style="color: #ACACB4;"><span ng-bind="orderDetail.productInfo.price"></span> x <span ng-bind="orderDetail.count"></span></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div ng-show="$index != model.orderDetails.length - 1" style="height: 1px; background-color: white;"></div>
+				</div>
+				<div class="priceCell">
+					<div class="price">共<span ng-bind="model.count"></span>件商品 合计：¥{{model.amount}}</div>
+					<div class="clear"></div>
+				</div>
+				<div class="line"></div>
+			</div>
+			<div ng-switch on="model.status">
+				<div ng-switch-when="0">
+					<div class="buttonsCell">
+						<div class="rightCell">
+							<div class="space" ng-click="cancelAction(model)"><span class="blackButton">取消订单</span></div>
+							<div class="space" ng-click="payAction(model)"><span class="redButton">支付</span></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div ng-switch-when="1">
+				</div>
+				<div ng-switch-when="2">
+					<div class="buttonsCell">
+						<div class="rightCell">
+							<div class="space" ng-click="makeSureAction(model)"><span class="blackButton">确认收货</span></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div ng-switch-when="3">
+				</div>
+				<div ng-switch-when="4">
+				</div>
+				<div style="height: 8px;"></div>
+			</div>
+		</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="com/global.js"></script>
+	<script type="text/javascript" src="my_order.js"></script>
+
+</html>

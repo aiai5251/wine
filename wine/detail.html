@@ -54,10 +54,12 @@
 				</div>
 				<div class="spaceSection"></div>
 				<div class="activitySection">
-					<div ng-show="productInfo.listc.length > 0">
+					<div ng-show="productInfo.couponList.length > 0">
 						<div class="activityCell">领券&nbsp;&nbsp;&nbsp;
-							<span class="activity-oneCell" ng-repeat="row in productInfo.listc">满399减30</span>
-							<a class="right-button" href="coupon.html?id={{productInfo.id}}">...</a>
+							<span class="activity-oneCell" ng-repeat="row in productInfo.couponList" ng-repeat="row in productInfo.couponList">
+								满<span ng-bind="row.max_price"></span>减<span ng-bind="row.price"></span>
+							</span>
+							<a class="right-button" href="coupon.html?id={{productInfo.id}}&status=1">...</a>
 						</div>
 						<div class="line"></div>
 					</div>
