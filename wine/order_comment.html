@@ -10,12 +10,44 @@
 		<link rel="shortcut icon" href="">
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<link rel="stylesheet" href="css/default.css" />
+		<link rel="stylesheet" href="css/mui.min.css" />
 		<title>评论页面</title>
 		<link rel="stylesheet" href="order_comment.css" />
 	</head>
 	<body>
-		
+		<div class="goods">
+			<img src="img/logo.png" class="goods-img" />
+			<div class="goods-name">
+				自动充值 吉林联通花费20元手机充值20元快充20元及时到账
+			</div>
+		</div>
+		<textarea id="commentInfo" style="font-size: 13px;" class="comment" placeholder="分享你的购买心得"></textarea>
+		<div class="upload" id="imagesList">
+			<!--这里是插入的img节点，上传图片时直接获取所有img节点即可-->
+			<!--选择图片按钮-->
+			<div class="item" style="background: url(img/camera.png) center no-repeat; border-style: solid; border-width: 0.5px; border-color: #B2B2B2;">
+				<input type="file" id="chooseImg" class="file_item" style="opacity: 0;" onchange="AddNewImage(this);"></input>
+			</div>
+			<!--不要删除-->
+			<div style="clear: both;"></div>
+		</div>
+		<!--底部tabbar-->
+		<div class="bottom-bar">
+			<a href="my_integral_advance.html" style="color: white;">提交评论</a>
+		</div>
+
+		<script type="text/javascript">
+			function AddNewImage(source) {
+				// 创建一个新的img节点
+				var childNode = document.createElement("img");
+				childNode.className = 'item';
+				document.getElementById("imagesList").insertBefore(childNode, source.parentNode);
+				// 把获取到的图片赋值给img节点
+				source.previousSibling.src = window.URL.createObjectURL(source.files[0]);
+				childNode.src = source.previousSibling.src;
+			}
+		</script>
+
 	</body>
 	<script type="text/javascript" src="order_comment.js"></script>
-
 </html>
