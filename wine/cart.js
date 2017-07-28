@@ -93,12 +93,6 @@ app.controller("cart", function($scope, $http) {
 		});
 	};
 	
-	// 删除购物车该商品
-	$scope.totalReomveCart = function(row) {
-		$http.get(getHeadUrl() + "cart_delete?id=" + row.id).success(function(response) {
-		});
-	}
-	
 	// 结算
 	$scope.totalButton = function() {
 		$scope.hasChoose = false;
@@ -123,7 +117,6 @@ app.controller("cart", function($scope, $http) {
 				$scope.pids = $scope.pids + $scope.cardModel.pid + ",";
 				$scope.counts = $scope.counts + $scope.cardModel.count + ",";
 				$scope.amounts = $scope.amounts + $scope.cardModel.price * $scope.cardModel.count + ",";
-//				$scope.totalReomveCart($scope.cardModel);
 			}
 		}
 
@@ -136,7 +129,7 @@ app.controller("cart", function($scope, $http) {
 			},
 			transformRequest: angular.identity
 		}).success(function(response) {
-			if (response.data != undefined && response.data.id.length > 0) {
+			if (response.data.id > 0) {
 				location.href = "order.html?id=" + response.data.id;	
 			}
 		});

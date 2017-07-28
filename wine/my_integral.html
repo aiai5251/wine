@@ -8,24 +8,18 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="format-detection" content="telephone=no">
 		<link rel="shortcut icon" href="">
-		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/mobile/layer.js"></script>
 		<link rel="stylesheet" href="css/default.css" />
 		<title>我的积分</title>
 		<link rel="stylesheet" href="my_integral.css" />
 		<link rel="stylesheet" href="css/mui.min.css" />
 	</head>
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-icon mui-icon-left-nav mui-action-back mui-pull-left"></a>
-			<h1 class="mui-title">奖励详情</h1>
-		</header>
 		<!-- top section -->
 		<div class="top">
 			<div class="top-detail">
 				<a href="my_integral_detail.html" style="color: black;">明细&nbsp;&nbsp;&nbsp;&nbsp;</a>
 			</div>
-			<div class="top-integral">200分</div>
+			<div class="top-integral"><span ng-bind="point"></span>分</div>
 			<div class="top-des">小积分，大作用</div>
 		</div>
 		<!-- 积分说明 -->
@@ -57,10 +51,12 @@
 			</div>
 		</div>
 
-		<div class="bottom-bar">
+		<!--<div class="bottom-bar">
 			<a href="my_integral_advance.html" style="color: white;">积分兑余额</a>
-		</div>
+		</div>-->
 	</body>
+	<script type="text/javascript" src="com/global.js" ></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="my_integral.js"></script>
 
 </html>

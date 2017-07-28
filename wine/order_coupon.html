@@ -20,6 +20,10 @@
 			<span ng-show="!isProductCoupon">我的优惠券</span>
 		</div>
 		
+		<div ng-show="couponList.length == 0" style="padding-top: 80px; text-align: center; color: #909090;">
+			目前没有可用的优惠券
+		</div>
+		
 		<!-- 列表 -->
 		<div style="padding-left: 10px; padding-right: 10px;">
 			<!-- cell -->

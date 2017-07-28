@@ -52,10 +52,10 @@
 				<img src="{{orderDetail.productInfo.image}}" style="width: 100px; height: 100px; margin-top: 10px; margin-left: 10px; float: left;" />
 				<div style="padding-left: 120px;">
 					<div class="order-goodsname"><span ng-bind="orderDetail.productInfo.title"></span></div>
-					<div style="font-size: 12px;  color: #808080; padding-top: 5px;">容量：<span ng-bind="orderDetail.productInfo.vloume">ML</span></div>
+					<div style="font-size: 12px;  color: #808080; padding-top: 5px;">容量：<span ng-bind="orderDetail.productInfo.volume"></span>ml</div>
 					<div style="font-size: 11px; color: red;">七天退换</div>
 					<div style="text-align: right;">
-						<div style="font-size: 13px; padding-right: 5px;">¥199.00 X 1</div>
+						<div style="font-size: 13px; padding-right: 5px;">¥<span ng-bind="orderDetail.productInfo.price"></span> x <span ng-bind="orderDetail.count"></span></div>
 					</div>
 				</div>
 			</div>
@@ -65,8 +65,8 @@
 		<!-- 留言、下单时间 -->
 		<div style="width: 100%; background-color: white; margin-top: 10px;">
 			<div ng-show="order.memo.length > 0">
-				<div style="padding: 10px; font-size: 13px; color: #888888;">留言：已收货</div>
-				<div style="height: 0.5px; background-color: #BBBBBB;"></div>
+				<div style="padding: 10px; font-size: 13px; color: #888888;">留言：<span ng-bind="order.memo"></span></div>
+				<div style="height: 0.5px; background-color: #F3F3F3;"></div>
 			</div>
 			<div style="padding: 10px; font-size: 13px; color: #888888;">下单时间：<span ng-bind="order.create_time"></span></div>
 		</div>
@@ -80,7 +80,7 @@
 					<div style="float: right;">¥<span ng-bind="order.amount"></span></div>
 					<div style="clear: both;"></div>
 				</div>
-				<div>
+				<div style="padding-top: 5px;">
 					<div style="float: left;">实际支付</div>
 					<div style="float: right; color: red;">¥<span ng-bind="order.pay"></span></div>
 					<div style="clear: both;"></div>
@@ -92,7 +92,7 @@
 		<!-- 积分、联系客服 -->
 		<div ng-show="order.point > 0" style="width: 100%; background-color: white; padding: 10px 10px 0px 10px; font-size: 13px;">
 			<div style="color: #888888; padding-bottom: 10px;">返积分<span style="color: red;" ng-bind="order.point"></span>点</div>
-			<div style="height: 0.5px; background-color: #BBBBBB;"></div>
+			<div style="height: 0.5px; background-color: #F3F3F3;"></div>
 		</div>
 
 		<div style="padding: 10px; font-size: 13px; background-color: white; ">
@@ -102,21 +102,21 @@
 		
 		<div class="bottom-bar">
 			<div ng-switch on="order.status">
-				<span ng-switch-when="0">
-					<a href="order.html?id={{order.id}}" style="color: white;">付款</a>
-				</span>
-				<span ng-switch-when="1">
+				<div ng-switch-when="0">
+					<span ng-click="payAction(order)">去支付</span>
+				</div>
+				<div ng-switch-when="1">
 					等待卖家发货
-				</span>
-				<span ng-switch-when="2" ng-click="makeSureAction()">
-					请确认收货
-				</span>
-				<span ng-switch-when="3">
+				</div>
+				<div ng-switch-when="2">
+					<span ng-click="makeSureAction()">确认收货</span>
+				</div>
+				<div ng-switch-when="3">
 					订单已完成
-				</span>
-				<span ng-switch-when="4">
+				</div>
+				<div ng-switch-when="4">
 					订单已取消
-				</span>
+				</div>
 			</div>
 		</div>
 

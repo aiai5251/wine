@@ -63,3 +63,15 @@
 	height: 20px;
 	vertical-align: top;
 }
+
+.couponCell {
+	background-color: white; 
+	padding: 10px; 
+	font-size: 13px;
+}
+
+.couponCell .desc {
+	padding-left: 5px; 
+	vertical-align: middle;
+}
+

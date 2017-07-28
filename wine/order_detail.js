@@ -6,6 +6,10 @@ app.controller("order_detail", function($scope, $http) {
 		$scope.order = response.data;
 	});
 	
+	$scope.payAction = function(model) {
+		location.href = "order.html?id=" + model.id;
+	}
+	
 	$scope.makeSureAction = function() {
 		if ($scope.makeSureClicked) {
 	 		return;

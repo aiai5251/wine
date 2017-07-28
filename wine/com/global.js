@@ -35,7 +35,8 @@ function GetQueryInt(name) {
     return context == null || context == "" || context == "undefined" ? 0 : new Number(context);
 }
 
-function getUid() {	
+function getUid() {
+	return 2;
 	var sd = localStorage.getItem("user_id");
 	if (sd != undefined && sd.length != 0) {
 		return sd;

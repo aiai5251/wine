@@ -1,8 +1,12 @@
 var app = angular.module("wine", []);
 app.controller("my_integral_detail", function($scope, $http) {
 	$scope.uid = getUid();
-	 $http.get(getHeadUrl() + "getPointDetailList?uid=" + $scope.uid).success(function(response) {
-	 	$scope.pointList = response.data.pointList;
-	 	console.log(response);
-	 });
+	if($scope.uid.length == 0) {
+		location.href = "com/go.html?url=" + location.href;
+		return;
+	}
+	
+	$http.get(getHeadUrl() + "point?uid=" + $scope.uid).success(function(response) {
+		$scope.pointList = response.data;		
+	});
 });

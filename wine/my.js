@@ -21,7 +21,7 @@ app.controller("my", function($scope, $http) {
 	
 	$scope.section2Array = [
 		{"title": "优惠券", "icon": "tuiguang.png", "hasRight": true, "desc": "", "href": "coupon.html?status=2"},
-		{"title": "我的积分", "icon": "orderlist.png", "hasRight": true, "desc": "", "href": "my_integral.html"},
+		{"title": "我的积分", "icon": "orderlist.png", "hasRight": true, "desc": "", "href": ""},
 	];
 	
 	$scope.section3Array = [
@@ -34,6 +34,7 @@ app.controller("my", function($scope, $http) {
 		$scope.section1Array[0].desc = $scope.mineInfo.award;
 		$scope.section2Array[0].desc = $scope.mineInfo.coupon_count;
 		$scope.section2Array[1].desc = $scope.mineInfo.point;
+		$scope.section2Array[1].href = "my_integral.html?point=" + $scope.mineInfo.point;
 		$scope.sectionArray = [$scope.section1Array, $scope.section2Array, $scope.section3Array];
 	});
 	

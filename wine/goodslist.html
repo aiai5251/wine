@@ -43,8 +43,11 @@
 				</div>
 				<div style="text-align:center" class="swiper-pagination"></div>
 			</div>
+			<div class="sectionTitle">
+				特色推荐
+			</div>
 			<div ng-show="productList.length > 0" ng-repeat="row in productList">
-				<div class="borderDiv">
+				<div class="borderDiv" ng-show="row.invalid == 0">
 					<a href="detail.html?id={{row.id}}">
 						<div style="padding: 4%; background-color: white;">
 							<table width="100%">

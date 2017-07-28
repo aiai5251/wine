@@ -11,7 +11,13 @@ app.controller("order", function($scope, $http) {
 	
 	$scope.hasConsignee = false; // 是否有收货人信息
 	$scope.isFinished = false; // 订单已完成状态
-	$scope.pay = 0;
+	$scope.pointSelected = false; // 积分选择
+//	$scope.awardSelected = false; //	余额选择
+	$scope.pay = 0.00;
+
+	$http.get(getHeadUrl() + "user?id=" + $scope.uid).success(function(response) {
+		$scope.user = response.data;
+	});
 
 	$http.get(getHeadUrl() + "address_selected?uid=" + $scope.uid).success(function(response) {
 		$scope.addressInfo = response.data;
@@ -22,6 +28,9 @@ app.controller("order", function($scope, $http) {
 	
 	$http.get(getHeadUrl() + "order?id=" + $scope.oid).success(function(response) {
 		$scope.order = response.data;
+		if ($scope.order.status > 0) {
+			$scope.isFinished = true;
+		}
 		$scope.cartArray = $scope.order.orderDetails;
 		$scope.pay = $scope.order.amount;
 		if ($scope.order.coupon_id > 0) {
@@ -36,6 +45,26 @@ app.controller("order", function($scope, $http) {
 	$scope.chooseCoupon = function() {
 		location.href = "order_coupon.html?oid=" + $scope.order.id + "&coupon_id=" + $scope.order.coupon_id + "&amount=" + $scope.order.amount;
 	}
+	
+	$scope.selectedPoint = function() {
+		if ($scope.pointSelected) {
+			$scope.pointSelected = false;
+			$scope.pay += $scope.user.point / 100.0;
+		} else {
+			$scope.pointSelected = true;
+			$scope.pay -= $scope.user.point / 100.0;	
+		}
+	}
+	
+//	$scope.selectedAward = function() {
+//		if ($scope.awardSelected) {
+//			$scope.awardSelected = false;
+//			$scope.pay += $scope.user.award;
+//		} else {
+//			$scope.awardSelected = true;
+//			$scope.pay -= $scope.user.award;	
+//		}
+//	}
 	
 	mui.init({
   		gestureConfig:{
@@ -52,15 +81,26 @@ app.controller("order", function($scope, $http) {
     });
 	
 	$scope.wxPay = function() {
+		if ($scope.isFinished) {
+			mui.toast("已经结算过了");
+			return;
+		}
 		if (!$scope.hasConsignee) {
 			mui.toast("请填写收货地址信息");
 			return;
 		}
+		$scope.isFinished = true;
 		
-		$scope.pay = 0.1 * 100;
-		location.href = getHeadUrl() + "/wechat_pay?order_num=" + $scope.order.order_num + "&amount=" + $scope.pay + "&wcid=" + $scope.wcid;
-//		$http.get(getHeadUrl() + "order_modify?id=" + $scope.order.id + "&address_id=" + $scope.addressInfo.id + "&status=1" + "&pay=" + $scope.pay).success(function(response) {
-//			location.href = getHeadUrl() + "/wechat_pay?order_no=2017071516238080&amount=0.1&wcid=" + getWcid();	
-//		});
+		if ($scope.user.admin == 1) {
+			$scope.pay = 0.1;	
+		}
+		$scope.point = 0;
+		if ($scope.pointSelected) {
+			$scope.point = $scope.user.point;
+		}
+		var memo = document.getElementById("memo").value;
+		$http.get(getHeadUrl() + "order_modify?id=" + $scope.order.id + "&address_id=" + $scope.addressInfo.id + "&pay=" + $scope.pay + "&point=" + $scope.point + "&memo=" + memo).success(function(response) {
+			location.href = getHeadUrl() + "/wechat_pay?order_num=" + $scope.order.order_num + "&amount=" + $scope.pay * 100 + "&openid=" + $scope.wcid;	
+		});
 	}
 });
