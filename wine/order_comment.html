@@ -24,7 +24,9 @@
 		<textarea id="commentInfo" class="comment" placeholder="分享你的购买心得"></textarea>
 		<div class="upload" id="images">
 			<!--选择图片按钮-->
-			<input type="file" id="chooseImg" class="item" onchange="AddNewImage(this);"></input>
+			<div class="item" style="background: url(img/camera.png) center no-repeat; border-style: solid; border-width: 0.5px; border-color: #B2B2B2;">
+				<input type="file" id="chooseImg" class="file_item" style="opacity: 0;" onchange="AddNewImage(this);"></input>
+			</div>
 			<!--不要删除-->
 			<div style="clear: both;"></div>
 		</div>
@@ -34,7 +36,7 @@
 				// 创建一个新的img节点
 				var childNode = document.createElement("img");
 				childNode.className = 'item';
-				document.getElementById("images").insertBefore(childNode, source);
+				document.getElementById("images").insertBefore(childNode, source.parentNode);
 				// 把获取到的图片赋值给img节点
 				source.previousSibling.src = window.URL.createObjectURL(source.files[0]);
 				childNode.src = source.previousSibling.src;

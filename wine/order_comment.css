@@ -54,5 +54,10 @@
 }
 
 .file_item {
-	
+	float: left;
+	width: 60px;
+	height: 60px;
+	/*margin-top: 0px;
+	margin-left: 0px;*/
+	background-color: #F2F2F2;	
 }
