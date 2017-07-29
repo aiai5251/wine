@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="wine" ng-controller="coupon">
+<html ng-app="wine" ng-controller="my_coupon">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +11,9 @@
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<link rel="stylesheet" href="css/mui.min.css" />
 		<link rel="stylesheet" href="css/default.css" />
-		<title>店铺优惠券</title>
-		<link rel="stylesheet" href="coupon.css" />
+		<title>我的优惠券</title>
 	</head>
 	<body style="background-color: white;">
-		<div style="width: 100%; text-align: center; padding-top: 10px; color: #606060;">
-			<span ng-show="isProductCoupon">店铺优惠券</span>
-			<span ng-show="!isProductCoupon">我的优惠券</span>
-		</div>
-		
 		<div ng-show="couponList.length == 0" style="text-align: center; padding-top: 80px; color: #909090;">
 			目前没有优惠券	
 		</div>
@@ -30,23 +24,24 @@
 			<div style="width: 100%; padding-top: 15px;" ng-repeat="coupon in couponList">
 				<!--left-->
 				<div style="float: left; width: 70%; height: 90px; background-color: #fff1f1; border-radius: 7px;">
-					<div style="color: #fc777b; font-size: 25px; padding-left: 10px; padding-top: 13px;"><span style="font-size: 14px;">¥</span><span ng-bind="coupon.price"></span></div>
-					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 2px;">满<span ng-bind="coupon.max_price"></span>使用</div>
-					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 0px;">有效期 <span ng-bind="coupon.build_time"></span> ~ <span ng-bind="coupon.end_time"></span></div>
+					<div style="color: #fc777b; font-size: 25px; padding-left: 10px; padding-top: 13px;"><span style="font-size: 14px;">¥</span><span ng-bind="coupon.couponInfo.price"></span></div>
+					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 2px;">满<span ng-bind="coupon.couponInfo.max_price"></span>使用</div>
+					<div style="color: #fc777b; font-size: 10px; padding-left: 10px; padding-top: 0px;">有效期 <span ng-bind="coupon.couponInfo.build_time"></span> ~ <span ng-bind="coupon.couponInfo.end_time"></span></div>
 				</div>
 				<!--right-->
 				<div style="float: left; width: 30%; height: 90px; background-color: #fff1f1; border-radius: 7px;">
-					<div style="color: #fc777b; font-size: 13px; text-align: center; padding-top: 37px;" ng-click="couponAction(coupon)">
-						<span ng-show="coupon.status != 0">已经领取</span>
-						<span ng-show="coupon.status == 0">立即领取</span>
+					<div style="color: #fc777b; font-size: 13px; text-align: center; padding-top: 37px;">
+						<span ng-show="coupon.status == 0">未使用</span>
+						<span ng-show="coupon.status != 0">已使用</span>
 					</div>
 				</div>
 				<div style="clear: both; height: 1px;"></div>
 			</div>
 		</div>
+
 	</body>
 	<script type="text/javascript" src="js/mui.min.js" ></script>
 	<script type="text/javascript" src="com/global.js" ></script>
-	<script type="text/javascript" src="coupon.js"></script>
+	<script type="text/javascript" src="my_coupon.js"></script>
 
 </html>

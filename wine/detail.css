@@ -7,6 +7,7 @@ a {
 .titleSection {
 	background-color: white;
 	padding: 10px;
+	font-size: 13px;
 }
 
 .ziying {
@@ -50,23 +51,24 @@ a {
 }
 
 .numCell {
-	padding-top: 8px;
+	padding-top: 0px;
 }
+
 .numCell div {
 	float: left;
-	line-height: 35px;
+	line-height: 20px;
 	vertical-align: top;
 }
 
 .numDesc {
-	line-height: 35px;
+	line-height: 20px;
 	vertical-align: top;
 }
 
 .num {
 	padding-left: 10px;
 	padding-right: 10px;
-	line-height: 35px;
+	line-height: 20px;
 	vertical-align: top;
 	/*border-width: 1px;
 	border-color: grey;
@@ -74,8 +76,8 @@ a {
 }
 
 .numCell img {
-	width: 35px;
-	height: 35px;
+	width: 20px;
+	height: 20px;
 }
 
 /*spaceSection*/

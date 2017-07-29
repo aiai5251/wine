@@ -8,7 +8,7 @@ app.controller("my_order", function($scope, $http) {
 		return;
 	}
 
-	if($scope.status != undefined) {
+	if($scope.status != undefined && $scope.status.length > 0) {
 		$http.get(getHeadUrl() + "my_order?uid=" + $scope.uid + "&status=" + $scope.status).success(function(response) {
 			$scope.orderList = response.data;
 		});

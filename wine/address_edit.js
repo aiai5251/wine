@@ -54,7 +54,7 @@ app.controller("address_edit", function($scope, $http) {
 		}
 
 		$http.get(getHeadUrl() + "address_modify?id=" + $scope.addressid + "&name=" + name + "&tel=" + tel + "&address=" + address + "&province_city=" + province_city).success(function(response) {
-			location.href = "address_control.html?oid=" + $scope.oid;
+			location.href = "addresslist.html?oid=" + $scope.oid;
 		});
 	}
 	 

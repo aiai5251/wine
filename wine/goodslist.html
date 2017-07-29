@@ -43,41 +43,43 @@
 				</div>
 				<div style="text-align:center" class="swiper-pagination"></div>
 			</div>
-			<div class="sectionTitle">
-				特色推荐
-			</div>
-			<div ng-show="productList.length > 0" ng-repeat="row in productList">
-				<div class="borderDiv" ng-show="row.invalid == 0">
-					<a href="detail.html?id={{row.id}}">
-						<div style="padding: 4%; background-color: white;">
-							<table width="100%">
-								<tr>
-									<td rowspan="6" width="40%">
-										<img ng-src="{{row.image}}" style="width: 100%;" />
-									</td>
-								</tr>
-								<tr>
-									<td class="title" ng-bind="row.title"></td>
-								</tr>
-								<tr>
-									<td class="submessage" ng-bind="row.submessage"></td>
-								</tr>
-								<tr>
-									<td class="submessage" ng-bind="row.volume"></td>
-								</tr>
-								<tr>
-									<td class="price"><span>¥</span><span ng-bind="row.price"></span></td>
-								</tr>
-								<tr>
-									<td class="rightButton">
-										<a href="">
-											<button type="button" class="mui-btn mui-icon mui-icon-arrowright mui-right" ng-click="selectCell(row.id)">收入囊中</button>
-										</a>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</a>
+			<div ng-show="productList.length > 0">
+				<div class="sectionTitle">
+					特色推荐
+				</div>
+				<div ng-repeat="row in productList">
+					<div class="borderDiv" ng-show="row.invalid == 0">
+						<a href="detail.html?id={{row.id}}">
+							<div style="padding: 4%; background-color: white;">
+								<table width="100%">
+									<tr>
+										<td rowspan="6" width="40%">
+											<img ng-src="{{row.image}}" style="width: 100%;" />
+										</td>
+									</tr>
+									<tr>
+										<td class="title" ng-bind="row.title"></td>
+									</tr>
+									<tr>
+										<td class="submessage" ng-bind="row.submessage"></td>
+									</tr>
+									<tr>
+										<td class="submessage"><span ng-bind="row.volume"></span>ml</td>
+									</tr>
+									<tr>
+										<td class="price"><span>¥</span><span ng-bind="row.price"></span></td>
+									</tr>
+									<tr>
+										<td class="rightButton">
+											<a href="">
+												<button type="button" class="mui-btn mui-icon mui-icon-arrowright mui-right" ng-click="selectCell(row.id)">收入囊中</button>
+											</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>

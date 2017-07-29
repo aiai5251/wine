@@ -28,7 +28,7 @@ app.controller("detail", function($scope, $http) {
 		}
 		var itemimgs = document.getElementById("swiperwrapper").getElementsByClassName("picture");
 		for(var i = 0; i < itemimgs.length; i++) {
-			itemimgs[i].height = $(window).width() * 900 / 1242.0;
+			itemimgs[i].height = $(window).width();
 		}
 		$scope.commentList = $scope.productInfo.commentList;
 	});

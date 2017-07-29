@@ -10,20 +10,20 @@ app.controller("order_coupon", function($scope, $http) {
 		return;
 	}
 	
-	$http.get(getHeadUrl() + "coupon?uid=" + $scope.uid + "&status=0").success(function(response) {
+	$http.get(getHeadUrl() + "my_coupon?uid=" + $scope.uid + "&status=0").success(function(response) {
 		$scope.couponList = response.data;
 	});
 	
 	mui.init();
 	$scope.couponAction = function(model) {
-		if (model.max_price < $scope.amount) {
-			$http.get(getHeadUrl() + "order_modify?id=" + $scope.oid + "&coupon_id=" + model.id).success(function(response) {
+		if (model.couponInfo.max_price < $scope.amount) {
+			$http.get(getHeadUrl() + "order_modify?id=" + $scope.oid + "&coupon_id=" + model.couponInfo.id).success(function(response) {
 				if (response.status == 1) {
 					location.href = "order.html?id=" + $scope.oid;	
-				} else {
-					mui.toast("暂不能使用");
 				}
 			});	
+		} else {
+			mui.toast("暂不能使用");
 		}
 	}
 

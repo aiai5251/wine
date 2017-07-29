@@ -3,7 +3,7 @@ body {
 }
 
 .content {
-	padding: 0px 20px 20px 20px;
+	padding: 10px 20px 20px 20px;
 }
 
 .tag_title {
@@ -12,6 +12,7 @@ body {
 	color: white;
 	vertical-align: top;
 	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .tag_point_cell {
@@ -28,8 +29,11 @@ body {
 
 .point {
 	background-color: orange;
+	margin-top: 3px;
+	margin-left: 5px;
 	width: 5px;
 	height: 5px;
+	float: left;
 }
 
 .tag_content {

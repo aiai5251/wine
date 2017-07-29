@@ -3,7 +3,7 @@ app.controller("order", function($scope, $http) {
 	$scope.oid = GetQueryString("id");
 	$scope.uid = getUid();
 	$scope.wcid = getWcid();
-	
+
 	if ($scope.uid.length == 0) {
 		location.href = "com/go.html?url=" + location.href;
 		return;
@@ -92,7 +92,7 @@ app.controller("order", function($scope, $http) {
 		$scope.isFinished = true;
 		
 		if ($scope.user.admin == 1) {
-			$scope.pay = 0.1;	
+			$scope.pay = 0.01;	
 		}
 		$scope.point = 0;
 		if ($scope.pointSelected) {

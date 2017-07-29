@@ -68,7 +68,7 @@
 				<div style="padding: 10px; font-size: 13px; color: #888888;">留言：<span ng-bind="order.memo"></span></div>
 				<div style="height: 0.5px; background-color: #F3F3F3;"></div>
 			</div>
-			<div style="padding: 10px; font-size: 13px; color: #888888;">下单时间：<span ng-bind="order.create_time"></span></div>
+			<div style="padding: 10px; font-size: 13px; color: #888888;">下单时间：{{model.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</div>
 		</div>
 
 		<div style="height: 10px;"></div>
@@ -78,6 +78,11 @@
 				<div>
 					<div style="float: left;">订单总价</div>
 					<div style="float: right;">¥<span ng-bind="order.amount"></span></div>
+					<div style="clear: both;"></div>
+				</div>
+				<div style="padding-top: 5px;" ng-show="order.coupon_id > 0 && order.status > 0">
+					<div style="float: left;">使用优惠券</div>
+					<div style="float: right; color: red;">- ¥<span ng-bind="order.couponInfo.price"></span></div>
 					<div style="clear: both;"></div>
 				</div>
 				<div style="padding-top: 5px;">

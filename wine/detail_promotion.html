@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<link rel="stylesheet" href="css/default.css" />
 		<title>促销</title>
-		<link rel="stylesheet" href="detail_integral.css" />
+		<link rel="stylesheet" href="detail_promotion.css" />
 	</head>
 	<body>
 		<div class="content" ng-repeat="row in promotionList">
@@ -20,8 +20,12 @@
 					<td rowspan="2" width="65px" class="tag_title">
 						<span ng-bind="row.name"></span>
 					</td>
-					<td class="tag_point_cell" width="4px"><div class="point"></div></td>
-					<td class="tag_cell"><div class="tag_content"><span ng-bind="row.description"></span></div></td>
+					<td class="tag_cell">
+						<div class="tag_content">
+							<div class="point"></div>
+							<span ng-bind="row.description" style="padding-left: 5px;"></span>
+						</div>
+					</td>
 				</tr>
 			</table>
 		</div>

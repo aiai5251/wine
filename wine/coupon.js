@@ -1,24 +1,15 @@
 var app = angular.module("wine", []);
 app.controller("coupon", function($scope, $http) {
-	$scope.pid = GetQueryInt("pid");
+	$scope.pid = GetQueryInt("id");
 	$scope.uid = getUid();
-	$scope.status = GetQueryInt("status");
 	if ($scope.uid.length == 0) {
 		location.href = "com/go.html?url=" + location.href;
 		return;
 	}
 	
-	if ($scope.status == 1) { //来自店铺优惠券
-		$scope.isProductCoupon = true;
-		$http.get(getHeadUrl() + "coupon?pid=" + $scope.pid).success(function(response) {
-			$scope.couponList = response.data;
-		});
-	} else if ($scope.status == 2) {
-		$scope.isProductCoupon = false;
-		$http.get(getHeadUrl() + "coupon?uid=" + $scope.uid).success(function(response) {
-			$scope.couponList = response.data;
-		});
-	}
+	$http.get(getHeadUrl() + "coupon?pid=" + $scope.pid + "&uid=" + $scope.uid).success(function(response) {
+		$scope.couponList = response.data;
+	});
 	
 	mui.init();
 	$scope.couponAction = function(model) {

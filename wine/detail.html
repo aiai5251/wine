@@ -37,9 +37,9 @@
 				</div>
 				<div style="text-align:center" class="swiper-pagination"></div>
 			</div>
-			<div>
+			<div ng-show="productInfo != null">
 				<div class="titleSection">
-					<span class="ziying">自营</span><span class="title"><span ng-bind="productInfo.title"></span> <span ng-bind="productInfo.volume"></span> <span ng-bind="productInfo.submessage"></span></span>
+					<span class="ziying">自营</span><span class="title"><span ng-bind="productInfo.title"></span> <span ng-bind="productInfo.volume"></span>ml <span ng-bind="productInfo.submessage"></span></span>
 					<div class="ad"><span ng-bind="productInfo.description"></span></div>
 					<div class="line"></div>
 					<div class="priceNumCell">
@@ -50,7 +50,7 @@
 						</span>
 					</div>
 					<div class="numCell"><span class="numDesc">购买数量：</span><img src="img/minus.png" ng-click="minsClick()"/><span class="num" ng-bind="defaultNum"></span><img src="img/plus.png" ng-click="plusClick()"/></div>
-					<div>运费：<span ng-if="productInfo.freight_money > 0" ng-bind="productInfo.freight_money"></span><span ng-if="productInfo.freight_money == 0">免运费</span></div>
+					<div style="font-size: 13px;">运费：¥10.0</div>
 				</div>
 				<div class="spaceSection"></div>
 				<div class="activitySection">

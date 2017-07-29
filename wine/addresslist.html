@@ -36,7 +36,7 @@
 							<h4 class="address"><label ng-show="row.is_default">[默认地址]</label> <span ng-bind="row.address"></span></h4>
 						</div>
 						<div class="mui-table-cell mui-col-xs-2 mui-text-right" style="width: 20px; vertical-align:middle;">
-							<img ng-show="row.is_selected" src="img/chooseSel.png" style="width: 18px; height: 18px;"/>
+							<img ng-show="row.is_selected" src="img/chooseSel.png" style="width: 18px; height: 18px;" ng-click="goTo()"/>
 							<img ng-show="!row.is_selected" src="img/choose.png" style="width: 18px; height: 18px;" ng-click="selectedAddress(row)"/>
 						</div>
 					</div>

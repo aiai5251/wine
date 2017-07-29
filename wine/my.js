@@ -20,7 +20,7 @@ app.controller("my", function($scope, $http) {
 	];
 	
 	$scope.section2Array = [
-		{"title": "优惠券", "icon": "tuiguang.png", "hasRight": true, "desc": "", "href": "coupon.html?status=2"},
+		{"title": "优惠券", "icon": "tuiguang.png", "hasRight": true, "desc": "", "href": "my_coupon.html"},
 		{"title": "我的积分", "icon": "orderlist.png", "hasRight": true, "desc": "", "href": ""},
 	];
 	

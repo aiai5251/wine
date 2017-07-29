@@ -13,6 +13,14 @@ app.controller("addresslist", function($scope, $http) {
 		console.log($scope.addressList);
 	});
 	
+	$scope.goTo = function() {
+		if ($scope.oid != undefined && $scope.oid.length > 0) {
+			location.href = "order.html?id=" + $scope.oid;	
+		} else {
+			location.href = "my.html";
+		}
+	}
+	
 	$scope.selectedAddress = function(model) {
 		for(var i = 0; i < $scope.addressList.length; i++) {
 			$scope.address = $scope.addressList[i];
