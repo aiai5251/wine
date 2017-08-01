@@ -14,9 +14,9 @@ app.controller("my", function($scope, $http) {
 	];
 	
 	$scope.section1Array = [
-		{"title": "我的奖励", "icon": "tuiguang.png", "hasRight": true, "desc": "", "href": "my_award.html"},
-		{"title": "我的推广团队", "icon": "orderlist.png", "hasRight": false, "desc": "", "href": "my_team.html"},
-		{"title": "奖励提现", "icon": "tel.png", "hasRight": false, "desc": "", "href": "cash_advance.html"}
+//		{"title": "我的奖励", "icon": "tuiguang.png", "hasRight": true, "desc": "", "href": "my_award.html"},
+//		{"title": "奖励提现", "icon": "tel.png", "hasRight": false, "desc": "", "href": "cash_advance.html"},
+		{"title": "我的推广团队", "icon": "orderlist.png", "hasRight": false, "desc": "", "href": "my_team.html"}
 	];
 	
 	$scope.section2Array = [
@@ -31,7 +31,7 @@ app.controller("my", function($scope, $http) {
 	
 	$http.get(getHeadUrl() + "my?id=" + $scope.uid).success(function(response) {
 		$scope.mineInfo = response.data;
-		$scope.section1Array[0].desc = $scope.mineInfo.award;
+//		$scope.section1Array[0].desc = $scope.mineInfo.award;
 		$scope.section2Array[0].desc = $scope.mineInfo.coupon_count;
 		$scope.section2Array[1].desc = $scope.mineInfo.point;
 		$scope.section2Array[1].href = "my_integral.html?point=" + $scope.mineInfo.point;
