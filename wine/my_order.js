@@ -29,10 +29,6 @@ app.controller("my_order", function($scope, $http) {
 
 	// 取消
 	$scope.cancelAction = function(model) {
-		if($scope.cancelClicked) {
-			return;
-		}
-		$scope.cancelClicked = true;
 		$http.get(getHeadUrl() + "order_modify?id=" + model.id + "&status=4").success(function(response) {
 			model.status = 4;
 		});
@@ -40,10 +36,6 @@ app.controller("my_order", function($scope, $http) {
 
 	// 确认收货
 	$scope.makeSureAction = function(model) {
-		if($scope.makeSureClicked) {
-			return;
-		}
-		$scope.makeSureClicked = true;
 		$http.get(getHeadUrl() + "order_modify?id=" + model.id + "&status=3").success(function(response) {
 			model.status = 3;
 		});

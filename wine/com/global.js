@@ -36,7 +36,7 @@ function GetQueryInt(name) {
 }
 
 function getUid() {
-	return 2;
+	return 3;
 	var sd = localStorage.getItem("user_id");
 	if (sd != undefined && sd.length != 0) {
 		return sd;
