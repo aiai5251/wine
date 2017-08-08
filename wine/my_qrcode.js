@@ -5,8 +5,4 @@ app.controller("my_qrcode", function($scope, $http) {
 		location.href = "com/go.html?url=" + location.href;
 		return;
 	}
-	
-	$http.get(getHeadUrl() + "qrcode?uid=" + $scope.uid).success(function(response){
-		$scope.ticket = response.ticket;
-	});
 });
