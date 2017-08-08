@@ -15,26 +15,26 @@
 		<link rel="stylesheet" href="my_team.css" />
 	</head>
 	<body>
-		<header class="mui-bar mui-bar-nav">
+		<!--<header class="mui-bar mui-bar-nav">
 			<a class="mui-icon mui-icon-left-nav mui-action-back mui-pull-left"></a>
 			<h1 class="mui-title">团队成员</h1>
-		</header>
+		</header>-->
 		<!-- top section -->
 		<div class="top">
-			<div class="top-memberCount">15人</div>
+			<div class="top-memberCount"><span ng-bind="memberArray.length"></span> 人</div>
 			<div class="top-des">您的团队成员消费越多，您的奖金越多</div>
 		</div>
 		
 		<div class="mui-table table">
 			<!--cell-->
-			<div class="cell">
-				<img src="img/back.jpeg" class="cell-img" />
+			<div class="cell" ng-repeat="row in memberArray">
+				<img ng-src="{{row.userBean.avatar}}" class="cell-img" />
 				<div class="cell-right">
-					<div style="clear: both; margin-top: 10px;">宋国雨 <img src="img/crown.png" style="width: 18px;"></div>
-					<div style="color: #888888; padding-top: 10px;">ID:5059</div>
+					<div style="clear: both; margin-top: 10px;"><span ng-bind="row.userBean.name"></span><img src="img/crown.png" style="width: 18px;"></div>
+					<div style="color: #888888; padding-top: 10px;">ID:<span ng-bind="row.userBean.id + 5000"></span></div>
 				</div>
 				<div style="width: 100%; height: 1px; clear: both; padding-top: 9px;"></div>
-				<div style="width: 100%; background: #b2b2b2; height: 0.5px; padding-top: ;"></div>
+				<div style="width: 100%; background: #b2b2b2; height: 0.5px;"></div>
 			</div>
 		</div>
 	</body>

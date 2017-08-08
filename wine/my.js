@@ -20,13 +20,13 @@ app.controller("my", function($scope, $http) {
 	];
 	
 	$scope.section2Array = [
-		{"title": "优惠券", "icon": "tuiguang.png", "hasRight": true, "desc": "", "href": "my_coupon.html"},
+		{"title": "优惠券", "icon": "tuiguang.png", "hasRight": false, "desc": "", "href": "my_coupon.html"},
 		{"title": "我的积分", "icon": "orderlist.png", "hasRight": true, "desc": "", "href": ""},
 	];
 	
 	$scope.section3Array = [
 		{"title": "管理收货地址", "icon": "tel.png", "hasRight": false, "desc": "", "href": "address_control.html"},
-		{"title": "客服", "icon": "tel.png", "hasRight": false, "desc": "", "href": "tel:10086"}
+		{"title": "客服", "icon": "tel.png", "hasRight": false, "desc": "", "href": "tel:0433-8258999"}
 	];
 	
 	$http.get(getHeadUrl() + "my?id=" + $scope.uid).success(function(response) {

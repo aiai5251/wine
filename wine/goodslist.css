@@ -20,7 +20,7 @@
 .submessage {
 	padding-left: 8%;
 	font-size: 12px;
-	color: #FFDA7D;
+	color: #999999;
 }
 
 .price {
@@ -28,15 +28,17 @@
 	padding-top: 5px;
 	padding-bottom: 5px;
 	font: 12px;
-	color: #C12629;
+	color: #CC0033;
 }
 
 .rightButton {
 	float: right;
 }
 
+.mui-right {
+	color: #666666;
+} 
+
 .sectionTitle {
-	text-align: center;
-	height: 40px;
-	padding-top: 10px;
+	padding-top: 5px;
 }
