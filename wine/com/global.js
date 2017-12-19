@@ -5,7 +5,7 @@ $ = function(_this) {
 
 function getHeadUrl() {
 //	 return "http://localhost:9090/wine/";
-	return "http://www.main-zha.com/chimu/wine/";
+	return "http://api.main-zha.com/wine/";
 }
 
 // Request
